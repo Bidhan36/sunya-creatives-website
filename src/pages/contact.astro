@@ -53,20 +53,20 @@ const wa = `https://wa.me/${site.contact.whatsapp}`;
   .ct__f { display: flex; flex-direction: column; gap: 28px; }
   .ct__two { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 28px; }
   .fl { display: flex; flex-direction: column; gap: 6px; font-weight: 500; }
-  .fl input, .fl textarea { font: inherit; font-size: var(--t-md); font-weight: 400; color: var(--ink); background: transparent; border: 0; border-bottom: 1px solid var(--ink); padding: 8px 0; border-radius: 0; resize: vertical; }
+  .fl input, .fl textarea { font: inherit; font-size: var(--t-md); font-weight: 400; color: var(--fg); background: transparent; border: 0; border-bottom: 1px solid var(--fg); padding: 8px 0; border-radius: 0; resize: vertical; }
   .fl input:focus, .fl textarea:focus { outline: none; border-bottom-width: 2px; }
   .fl textarea::placeholder { color: var(--mute); }
   .ch { border: 0; margin: 0; padding: 0; display: flex; flex-wrap: wrap; gap: 8px; }
   .ch legend { font-weight: 500; margin-bottom: 10px; padding: 0; }
   .ch label { position: relative; }
   .ch input { position: absolute; opacity: 0; inset: 0; margin: 0; cursor: pointer; }
-  .ch span { display: inline-flex; align-items: center; min-height: 44px; padding: 0 16px; border: 1px solid var(--ink); transition: background 0.25s, color 0.25s; }
-  .ch input:checked + span { background: var(--ink); color: var(--white); }
-  .ch input:focus-visible + span { outline: 2px solid var(--ink); outline-offset: 3px; }
-  .ct__send { align-self: flex-start; min-height: 56px; padding: 0 30px; background: var(--ink); color: var(--white); border: 0; font-weight: 600; cursor: pointer; transition: background 0.3s, color 0.3s; }
-  .ct__send:hover { background: var(--gold); color: var(--ink); }
+  .ch span { display: inline-flex; align-items: center; min-height: 44px; padding: 0 16px; border: 1px solid var(--fg); transition: background 0.25s, color 0.25s; }
+  .ch input:checked + span { background: var(--fg); color: var(--canvas); }
+  .ch input:focus-visible + span { outline: 2px solid var(--fg); outline-offset: 3px; }
+  .ct__send { align-self: flex-start; min-height: 56px; padding: 0 30px; background: var(--fg); color: var(--canvas); border: 0; font-weight: 600; cursor: pointer; transition: background 0.3s, color 0.3s; }
+  .ct__send:hover { background: var(--gold); color: #000; }
   .ct__btns { display: flex; flex-wrap: wrap; gap: 12px; }
-  .ct__send--line { background: transparent; color: var(--ink); border: 1px solid var(--ink); }
+  .ct__send--line { background: transparent; color: var(--fg); border: 1px solid var(--fg); }
   .ct__note { min-height: 1.4em; color: var(--mute); }
   .ct__d { margin: 0; align-self: start; }
   .ct__d div { padding: 14px 0; border-top: 1px solid var(--line); }

@@ -76,7 +76,7 @@ const tier = (p) => (p.ratio < 0.7 ? 'v' : p.ratio < 1.1 ? 'p' : 'w');
   .intro__lock { width: min(62vw, 640px); display: flex; flex-direction: column; align-items: center; }
   .intro__logo { width: 100%; height: auto; will-change: transform, opacity; position: relative; z-index: 2; background: var(--ink); box-shadow: 0 0 0 2px var(--ink); }
   .intro__mask { overflow: hidden; width: 100%; margin-top: 0.9em; text-align: center; }
-  .intro__line { display: block; font-size: min(5.4vw, 56px); line-height: 1.2; color: var(--canvas); will-change: transform; }
+  .intro__line { display: block; font-size: min(5.4vw, 56px); line-height: 1.2; color: var(--bone); will-change: transform; }
   .intro__cue { position: absolute; left: 50%; bottom: var(--g); transform: translateX(-50%); font-size: var(--t-xs); color: var(--mute-d); letter-spacing: 0.02em; }
   .intro__cue::after { content: ''; display: block; width: 1px; height: 36px; margin: 10px auto 0; background: currentColor; transform-origin: top; animation: cue 1.8s var(--ease) infinite; }
   @keyframes cue { 0% { transform: scaleY(0); } 50% { transform: scaleY(1); transform-origin: top; } 51% { transform-origin: bottom; } 100% { transform: scaleY(0); transform-origin: bottom; } }

@@ -88,20 +88,25 @@
       "client": "AYG",
       "category": "Music Video",
       "year": 2026,
-      "aspect": "16:9",
-      "media": null,
-      "poster": "shutdown/poster.jpg",
+      "aspect": "1.85",
+      "media": "shutdown",
+      "poster": null,
       "youtube": "YiZpUQGxLJs",
       "role": "Direction and edit",
       "brief": "AYG's SHUTDOWN, produced by Niswon Music. A night-city music video with a noir edge, directed and cut by Sunya.",
-      "gallery": [],
+      "gallery": [
+        "shutdown/still-1.jpg",
+        "shutdown/still-2.jpg",
+        "shutdown/still-4.jpg",
+        "shutdown/still-5.jpg",
+        "shutdown/still-6.jpg"
+      ],
       "deliverables": [
         "Official music video"
       ],
       "results": [],
-      "todo": [
-        "more stills from the master file"
-      ]
+      "todo": [],
+      "ytPoster": "shutdown/still-3.jpg"
     },
     {
       "slug": "see-how-we-shine",
@@ -162,13 +167,19 @@
       "client": "Prabin Gurung",
       "category": "Music Video",
       "year": 2026,
-      "aspect": "4:5",
-      "media": null,
-      "poster": "majati/poster.jpg",
+      "aspect": "16:9",
+      "media": "majati",
+      "poster": null,
       "youtube": "jkUAjfCFTJk",
       "role": "Direction, cinematography, production, artist and location management, colour grading",
       "brief": "Prabin Gurung's Ma Jati Ruyeni, featuring Prabesh and Kushmina. Everything except the music was Sunya: casting and managing the artists, locations, production, direction, cinematography and the grade, all by our own team. We also designed the release poster for the 15 September premiere.",
-      "gallery": [],
+      "gallery": [
+        "majati/still-2.jpg",
+        "majati/release-poster.jpg",
+        "majati/still-3.jpg",
+        "majati/still-4.jpg",
+        "majati/still-5.jpg"
+      ],
       "deliverables": [
         "Official music video",
         "Release poster"
@@ -177,9 +188,8 @@
       "links": {
         "behance": "https://www.behance.net/gallery/255750513/Music-Video-Poster-Ma-Jati-Ruyani-Poster"
       },
-      "todo": [
-        "video file for loops"
-      ]
+      "todo": [],
+      "ytPoster": "majati/still-1.jpg"
     },
     {
       "slug": "hulaki-band",

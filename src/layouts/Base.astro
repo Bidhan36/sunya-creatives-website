@@ -47,7 +47,25 @@ const nav = [
     <meta property="og:image" content={og} />
     <meta name="twitter:card" content="summary_large_image" />
     <script type="application/ld+json" is:inline set:html={JSON.stringify(ld)} />
-    <script is:inline>document.documentElement.classList.add('js');</script>
+    <script is:inline>
+      (function () {
+        var d = document.documentElement;
+        d.classList.add('js');
+        // Theme: the visitor's choice, otherwise their system setting. Set before paint so there is no flash.
+        var t = null;
+        try { t = localStorage.getItem('sunya:theme'); } catch (e) {}
+        if (t !== 'light' && t !== 'dark') t = matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+        d.dataset.theme = t;
+        var m = document.querySelector('meta[name=theme-color]');
+        if (m) m.content = t === 'dark' ? '#141413' : '#edeee5';
+        try {
+          if (sessionStorage.getItem('sunya:wipe') === '1' && !matchMedia('(prefers-reduced-motion: reduce)').matches) {
+            d.classList.add('is-wiping');
+            setTimeout(function () { d.classList.remove('is-wiping'); }, 2500);
+          }
+        } catch (e) {}
+      })();
+    </script>
   </head>
   <body class:list={[bodyClass, { 'dark-top': darkTop }]}>
     <a class="skip" href="#main">Skip to content</a>
@@ -56,7 +74,13 @@ const nav = [
         <img class="on-light" src="/img/logo-ink.png" width="580" height="88" alt="" />
         <img class="on-dark" src="/img/logo-bone.png" width="580" height="88" alt="" />
       </a>
-      <a class="hd__talk" href="/contact/" data-magnetic><i class="ring" aria-hidden="true"></i><span data-scramble>Let's talk</span></a>
+      <div class="hd__r">
+        <button class="hd__mode" type="button" data-theme-toggle aria-label="Switch to dark mode">
+          <svg viewBox="0 0 16 16" aria-hidden="true"><circle cx="8" cy="8" r="6.6" fill="none" stroke="currentColor" stroke-width="1.4" /><path d="M8 1.4a6.6 6.6 0 0 1 0 13.2z" fill="currentColor" /></svg>
+          <span data-theme-label>Dark</span>
+        </button>
+        <a class="hd__talk" href="/contact/" data-magnetic><i class="ring" aria-hidden="true"></i><span data-scramble>Let's talk</span></a>
+      </div>
     </header>
 
     <slot />

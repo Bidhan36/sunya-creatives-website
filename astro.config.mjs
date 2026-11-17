@@ -6,7 +6,7 @@ import site from './content/site.json' with { type: 'json' };
 export default defineConfig({
   site: site.url,
   trailingSlash: 'always',
-  integrations: [sitemap()],
+  integrations: [sitemap({ filter: (page) => !page.includes('/404') })],
   build: { inlineStylesheets: 'always' },
   compressHTML: true,
 });
