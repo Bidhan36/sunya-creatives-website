@@ -317,7 +317,7 @@
       "poster": null,
       "youtube": null,
       "role": null,
-      "brief": "Reels for Soaltee Westend in Lakeside, Pokhara: the restaurant, breakfast, the pool, and the team who run the hotel, passing a football from the lobby to the kitchen.",
+      "brief": "Films and reels for Soaltee Westend in Lakeside, Pokhara: the restaurant, breakfast, the pool, the Heritage Club, a guest’s arrival, and the team who run the hotel, passing a football from the lobby to the kitchen.",
       "films": [
         {
           "title": "The restaurant",
@@ -338,6 +338,16 @@
           "title": "The team",
           "media": "soaltee-ball",
           "aspect": "9:16"
+        },
+        {
+          "title": "A guest arrives",
+          "media": "soaltee-king",
+          "aspect": "9:16"
+        },
+        {
+          "title": "Heritage Club",
+          "media": "soaltee-heritage",
+          "aspect": "16:9"
         }
       ],
       "gallery": [
@@ -346,7 +356,10 @@
         "soaltee-pool/s3.jpg",
         "soaltee-ball/s1.jpg",
         "soaltee-breakfast/s2.jpg",
-        "soaltee-food/s1.jpg"
+        "soaltee-food/s1.jpg",
+        "soaltee-heritage/s2.jpg",
+        "soaltee-king/s2.jpg",
+        "soaltee-heritage/s3.jpg"
       ],
       "deliverables": [
         "Hospitality reels"
@@ -451,7 +464,7 @@
       "poster": null,
       "youtube": null,
       "role": null,
-      "brief": "A Tihar campaign for SUBII jewellery: a festive product film among marigolds and diyo, and a set of posters for the season.",
+      "brief": "A Tihar campaign for SUBII jewellery: a festive product film among marigolds and diyo, product photography on black satin, and a set of posters for the season.",
       "films": [
         {
           "title": "Tihar film",
@@ -461,14 +474,19 @@
       ],
       "gallery": [
         "designs2/subii-1.jpg",
-        "subii/s3.jpg",
+        "subii-photo/p1.jpg",
         "designs2/subii-2.jpg",
-        "subii/s2.jpg",
+        "subii-photo/p3.jpg",
+        "subii/s3.jpg",
+        "subii-photo/p2.jpg",
         "designs2/subii-3.jpg",
-        "subii/s4.jpg"
+        "subii-photo/p4.jpg",
+        "subii/s2.jpg",
+        "subii-photo/p5.jpg"
       ],
       "deliverables": [
         "Product film",
+        "Product photography",
         "Campaign posters"
       ],
       "results": [],
