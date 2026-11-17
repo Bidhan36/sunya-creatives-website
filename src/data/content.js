@@ -1,7 +1,7 @@
 import file from '../../content/projects.json';
 import site from '../../content/site.json';
 
-const RATIO = { '2.39': 2.39, '2': 2, '1.85': 1.85, '16:9': 16 / 9, '9:16': 9 / 16, '4:5': 4 / 5, '1:1': 1 };
+const RATIO = { '2.39': 2.39, '2': 2, '1.85': 1.85, '4:3': 4 / 3, '16:9': 16 / 9, '9:16': 9 / 16, '4:5': 4 / 5, '1:1': 1 };
 const W = (p) => `/work/${p}`;
 
 export const media = (folder, aspect = '16:9') =>

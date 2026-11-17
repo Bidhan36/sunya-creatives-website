@@ -9,7 +9,7 @@ import { projects } from '../../data/content.js';
   <main id="main">
     <section class="wk" data-wheel style={`--n:${projects.length}`}>
       <div class="wk__stage">
-        <div class="wk__h"><h1><span class="ln"><span>Works</span></span></h1><p class="wk__lead" data-fade>Brand films, music videos, campaigns, events and identities. {projects.length} projects and counting.</p></div>
+        <div class="wk__h"><h1><span class="ln"><span>Works</span></span></h1><p class="wk__lead" data-fade>Brand films, music videos, campaigns, events and identities. 200+ projects completed and counting.</p></div>
         <ul class="wk__rail" aria-hidden="true">
           {projects.map((p, i) => <li class="frame" data-rail={i}><img src={p.cover.poster} alt="" loading="lazy" /></li>)}
         </ul>
@@ -48,8 +48,8 @@ import { projects } from '../../data/content.js';
   .wk__h { position: absolute; left: var(--g); bottom: calc(var(--g) + 4px); max-width: 24ch; }
   .wk__h h1 { font-size: var(--t-lg); font-weight: 500; letter-spacing: -0.03em; line-height: 1; }
   .wk__lead { margin-top: 10px; color: var(--mute); font-size: var(--t-sm); }
-  .wk__rail { position: absolute; left: var(--g); top: 50%; transform: translateY(-58%); display: flex; flex-direction: column; gap: 6px; }
-  .wk__rail li { width: 52px; height: 30px; opacity: 0.35; transition: opacity 0.4s, transform 0.5s var(--ease); }
+  .wk__rail { position: absolute; left: var(--g); top: calc(var(--g) + 70px); height: calc(100svh - var(--g) - 70px - max(230px, 30svh)); display: flex; flex-direction: column; justify-content: center; gap: 4px; }
+  .wk__rail li { width: 52px; flex: 0 1 30px; min-height: 8px; opacity: 0.35; transition: opacity 0.4s, transform 0.5s var(--ease); }
   .wk__rail li.is-on { opacity: 1; transform: translateX(8px); }
   .wk__view { position: absolute; left: 50%; top: 50%; width: 44vw; height: 60svh; transform: translate(-72%, -50%); }
   .wk__cover { position: absolute; left: 50%; top: 50%; aspect-ratio: var(--r); width: min(44vw, calc(60svh * var(--r))); transform: translate(-50%, -50%); opacity: 0; transition: opacity 0.6s var(--ease); }

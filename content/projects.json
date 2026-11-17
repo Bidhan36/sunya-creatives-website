@@ -1,9 +1,9 @@
 {
   "_readme": [
     "One entry per project, in site order. The 001, 002 index comes from this order.",
-    "category: Brand Film, Music Video, Social Campaign, Event, Branding or Wedding.",
+    "category: Brand Film, Music Video, Social Campaign, Social Media, Campaign, Event, Branding, Wedding, Hospitality Film, Hospitality Reels, Festive Campaign or Product Film.",
     "media lives in public/work/<folder>/: loop.mp4 + loop.webm (muted, under 3 MB), poster.jpg, still-N.jpg. All films are cropped to their picture, no black bars.",
-    "aspect is the shape of the cover: 2.39, 2, 16:9, 9:16, 4:5.",
+    "aspect is the shape of the cover: 2.39, 2, 1.85, 16:9, 4:3, 1:1, 9:16, 4:5.",
     "null fields are hidden on the site and listed as TODO. Nothing here is invented."
   ],
   "projects": [
@@ -80,7 +80,60 @@
       "todo": [
         "role",
         "year"
+      ],
+      "films": [
+        {
+          "title": "Championship selection day",
+          "media": "enduro-select",
+          "aspect": "16:9"
+        }
       ]
+    },
+    {
+      "slug": "rupakot-resort",
+      "title": "Rupakot Resort",
+      "client": "Rupakot Resort",
+      "category": "Hospitality Film",
+      "year": 2026,
+      "aspect": "4:3",
+      "media": "rupakot-2",
+      "poster": null,
+      "youtube": null,
+      "role": null,
+      "brief": "Three films for Rupakot Resort, shot in the monsoon. Fog over the hills, the gardens, the rooms and the infinity pool above the lake, cut slow so the place can breathe.",
+      "films": [
+        {
+          "title": "Film I",
+          "media": "rupakot-1",
+          "aspect": "4:3"
+        },
+        {
+          "title": "Film II",
+          "media": "rupakot-2",
+          "aspect": "4:3"
+        },
+        {
+          "title": "Film III",
+          "media": "rupakot-3",
+          "aspect": "4:3"
+        }
+      ],
+      "gallery": [
+        "rupakot-1/s1.jpg",
+        "rupakot-2/s4.jpg",
+        "rupakot-3/s3.jpg",
+        "rupakot-1/s4.jpg",
+        "rupakot-2/s2.jpg",
+        "rupakot-3/s4.jpg"
+      ],
+      "deliverables": [
+        "Three resort films"
+      ],
+      "results": [],
+      "todo": [
+        "role"
+      ],
+      "links": {}
     },
     {
       "slug": "shutdown-ayg",
@@ -136,6 +189,61 @@
       ]
     },
     {
+      "slug": "highground-adventures",
+      "title": "HighGround Adventures",
+      "client": "HighGround Adventures",
+      "category": "Campaign",
+      "year": 2026,
+      "aspect": "16:9",
+      "media": "hg-main",
+      "poster": null,
+      "youtube": null,
+      "role": "Promo film and offer reels",
+      "brief": "HighGround Adventures runs bungee, the Sky Screamer, zipline and ATV rides in Pokhara. We made the main promo and a run of square offer reels for their combo deals.",
+      "films": [
+        {
+          "title": "Pokhara’s ultimate adventure",
+          "media": "hg-main",
+          "aspect": "16:9"
+        },
+        {
+          "title": "Buy one, get one bungee",
+          "media": "hg-1",
+          "aspect": "1:1"
+        },
+        {
+          "title": "Bungee and Sky Screamer combo",
+          "media": "hg-2",
+          "aspect": "1:1"
+        },
+        {
+          "title": "Pay for one, fly as three",
+          "media": "hg-3",
+          "aspect": "1:1"
+        },
+        {
+          "title": "Zipline combo",
+          "media": "hg-4",
+          "aspect": "1:1"
+        }
+      ],
+      "gallery": [
+        "hg-2/s1.jpg",
+        "hg-3/s3.jpg",
+        "hg-1/s4.jpg",
+        "hg-4/s4.jpg",
+        "hg-2/s2.jpg",
+        "hg-3/s2.jpg"
+      ],
+      "deliverables": [
+        "Promo film, 16:9",
+        "Offer reels, 1:1"
+      ],
+      "results": [],
+      "todo": [],
+      "links": {}
+    },
+    {
       "slug": "chari-haru-sangai",
       "title": "Chari Haru Sangai",
       "client": "Sagar Satyal",
@@ -159,6 +267,13 @@
         "role",
         "year",
         "artist"
+      ],
+      "films": [
+        {
+          "title": "Teaser",
+          "media": "chari-teaser",
+          "aspect": "9:16"
+        }
       ]
     },
     {
@@ -192,6 +307,57 @@
       "ytPoster": "majati/still-1.jpg"
     },
     {
+      "slug": "soaltee-westend-pokhara",
+      "title": "Soaltee Westend Pokhara",
+      "client": "Soaltee Westend Pokhara",
+      "category": "Hospitality Reels",
+      "year": 2026,
+      "aspect": "9:16",
+      "media": "soaltee-food",
+      "poster": null,
+      "youtube": null,
+      "role": null,
+      "brief": "Reels for Soaltee Westend in Lakeside, Pokhara: the restaurant, breakfast, the pool, and the team who run the hotel, passing a football from the lobby to the kitchen.",
+      "films": [
+        {
+          "title": "The restaurant",
+          "media": "soaltee-food",
+          "aspect": "9:16"
+        },
+        {
+          "title": "Breakfast",
+          "media": "soaltee-breakfast",
+          "aspect": "9:16"
+        },
+        {
+          "title": "Poolside",
+          "media": "soaltee-pool",
+          "aspect": "9:16"
+        },
+        {
+          "title": "The team",
+          "media": "soaltee-ball",
+          "aspect": "9:16"
+        }
+      ],
+      "gallery": [
+        "soaltee-breakfast/s4.jpg",
+        "soaltee-food/s2.jpg",
+        "soaltee-pool/s3.jpg",
+        "soaltee-ball/s1.jpg",
+        "soaltee-breakfast/s2.jpg",
+        "soaltee-food/s1.jpg"
+      ],
+      "deliverables": [
+        "Hospitality reels"
+      ],
+      "results": [],
+      "todo": [
+        "role"
+      ],
+      "links": {}
+    },
+    {
       "slug": "hulaki-band",
       "title": "Hulaki Band",
       "client": "Aashirwad Music Fest",
@@ -204,14 +370,140 @@
       "gallery": [
         "hulaki/still-1.jpg",
         "hulaki/still-2.jpg",
-        "hulaki/still-3.jpg"
+        "hulaki/still-3.jpg",
+        "designs2/fest-1.jpg",
+        "designs2/fest-2.jpg",
+        "designs2/fest-3.jpg"
       ],
       "deliverables": [
         "Festival campaign, 36 assets over 19 days",
         "After-movie reel"
       ],
       "results": [],
-      "todo": []
+      "todo": [],
+      "films": [
+        {
+          "title": "Live in Pokhara, promo I",
+          "media": "fest-1",
+          "aspect": "9:16"
+        },
+        {
+          "title": "Live in Pokhara, promo II",
+          "media": "fest-2",
+          "aspect": "9:16"
+        }
+      ]
+    },
+    {
+      "slug": "charge-and-go",
+      "title": "Charge & Go",
+      "client": "Charge & Go Car Rent",
+      "category": "Social Media",
+      "year": 2026,
+      "aspect": "9:16",
+      "media": "charge-creta",
+      "poster": null,
+      "youtube": null,
+      "role": "Social media: reels, design and Meta posting",
+      "brief": "Charge & Go rents cars across Nepal from Naya Bazar, Pokhara. We run their social media every month: reels, motion design and posts that make renting a car feel simple.",
+      "films": [
+        {
+          "title": "Creta EV",
+          "media": "charge-creta",
+          "aspect": "9:16"
+        },
+        {
+          "title": "Go Go Go",
+          "media": "charge-go",
+          "aspect": "9:16"
+        },
+        {
+          "title": "The rent checklist",
+          "media": "charge-r2",
+          "aspect": "9:16"
+        }
+      ],
+      "gallery": [
+        "charge-creta/s1.jpg",
+        "charge-go/s1.jpg",
+        "charge-creta/s3.jpg",
+        "charge-go/s3.jpg",
+        "charge-r2/s3.jpg",
+        "charge-creta/s4.jpg"
+      ],
+      "deliverables": [
+        "Monthly reels",
+        "Motion design",
+        "Social posts"
+      ],
+      "results": [],
+      "todo": [],
+      "links": {}
+    },
+    {
+      "slug": "subii",
+      "title": "SUBII",
+      "client": "SUBII",
+      "category": "Festive Campaign",
+      "year": 2026,
+      "aspect": "9:16",
+      "media": "subii",
+      "poster": null,
+      "youtube": null,
+      "role": null,
+      "brief": "A Tihar campaign for SUBII jewellery: a festive product film among marigolds and diyo, and a set of posters for the season.",
+      "films": [
+        {
+          "title": "Tihar film",
+          "media": "subii",
+          "aspect": "9:16"
+        }
+      ],
+      "gallery": [
+        "designs2/subii-1.jpg",
+        "subii/s3.jpg",
+        "designs2/subii-2.jpg",
+        "subii/s2.jpg",
+        "designs2/subii-3.jpg",
+        "subii/s4.jpg"
+      ],
+      "deliverables": [
+        "Product film",
+        "Campaign posters"
+      ],
+      "results": [],
+      "todo": [
+        "role"
+      ],
+      "links": {}
+    },
+    {
+      "slug": "new-mew",
+      "title": "New Mew",
+      "client": "New Mew",
+      "category": "Product Film",
+      "year": 2026,
+      "aspect": "4:5",
+      "media": "newmew",
+      "poster": null,
+      "youtube": null,
+      "role": null,
+      "brief": "A running film for New Mew, the Nepali sports-eyewear brand, shot on the roads and airfields around Pokhara.",
+      "films": [],
+      "gallery": [
+        "newmew/s1.jpg",
+        "newmew/s2.jpg",
+        "newmew/s3.jpg",
+        "newmew/s4.jpg"
+      ],
+      "deliverables": [
+        "Product film"
+      ],
+      "results": [],
+      "todo": [
+        "role"
+      ],
+      "links": {}
     },
     {
       "slug": "creators-summit-nepal-2026",
@@ -235,7 +527,15 @@
         "summit-design/d1.jpg",
         "summit-design/d2.jpg",
         "summit-design/d3.jpg",
-        "summit-design/d4.jpg"
+        "summit-design/d4.jpg",
+        "designs2/summit-7.jpg",
+        "designs2/summit-8.jpg",
+        "designs2/summit-6.jpg",
+        "designs2/summit-4.jpg",
+        "designs2/summit-5.jpg",
+        "designs2/summit-1.jpg",
+        "designs2/summit-9.jpg",
+        "designs2/summit-3.jpg"
       ],
       "deliverables": [
         "Brand identity",
@@ -268,7 +568,104 @@
         "Event film and photography"
       ],
       "results": [],
-      "todo": []
+      "todo": [],
+      "films": [
+        {
+          "title": "Protein at the gym",
+          "media": "egg-1",
+          "aspect": "9:16"
+        },
+        {
+          "title": "Early morning session",
+          "media": "egg-2",
+          "aspect": "9:16"
+        },
+        {
+          "title": "An athlete on eggs",
+          "media": "egg-3",
+          "aspect": "9:16"
+        },
+        {
+          "title": "Protein that powers",
+          "media": "egg-4",
+          "aspect": "9:16"
+        },
+        {
+          "title": "Egg dishes",
+          "media": "egg-5",
+          "aspect": "9:16"
+        }
+      ]
+    },
+    {
+      "slug": "dudh-ko-gadi",
+      "title": "Dudh Ko Gadi",
+      "client": "Black Vyper ft. Young Nirmal",
+      "category": "Music Video",
+      "year": 2026,
+      "aspect": "16:9",
+      "media": "dudh",
+      "poster": null,
+      "youtube": null,
+      "role": null,
+      "brief": "Dudh Ko Gadi by Black Vyper featuring Young Nirmal. A night-street music video built around a milk van, the crew and the city after dark.",
+      "films": [],
+      "gallery": [
+        "designs2/dudh-band.jpg",
+        "dudh/s1.jpg",
+        "designs2/dudh-card.jpg",
+        "dudh/s3.jpg",
+        "dudh/s4.jpg"
+      ],
+      "deliverables": [
+        "Music video",
+        "Title artwork"
+      ],
+      "results": [],
+      "todo": [
+        "role",
+        "YouTube link"
+      ],
+      "links": {}
+    },
+    {
+      "slug": "run-pkr",
+      "title": "Run PKR",
+      "client": "Run PKR",
+      "category": "Event",
+      "year": 2026,
+      "aspect": "9:16",
+      "media": "runpkr-1",
+      "poster": null,
+      "youtube": null,
+      "role": null,
+      "brief": "Event reels for Run PKR, a community run in Pokhara: the warm-up, the start and the runners coming home.",
+      "films": [
+        {
+          "title": "Run day",
+          "media": "runpkr-1",
+          "aspect": "9:16"
+        },
+        {
+          "title": "Warm-up",
+          "media": "runpkr-2",
+          "aspect": "9:16"
+        }
+      ],
+      "gallery": [
+        "runpkr-1/s1.jpg",
+        "runpkr-1/s2.jpg",
+        "runpkr-2/s2.jpg",
+        "runpkr-1/s4.jpg"
+      ],
+      "deliverables": [
+        "Event reels"
+      ],
+      "results": [],
+      "todo": [
+        "role"
+      ],
+      "links": {}
     },
     {
       "slug": "singapore-cafe",
@@ -314,7 +711,24 @@
         "Reels and graphics"
       ],
       "results": [],
-      "todo": []
+      "todo": [],
+      "films": [
+        {
+          "title": "Study in Switzerland",
+          "media": "star-swi",
+          "aspect": "9:16"
+        },
+        {
+          "title": "Study in Finland",
+          "media": "star-fin",
+          "aspect": "9:16"
+        },
+        {
+          "title": "Study in Romania",
+          "media": "star-rom",
+          "aspect": "9:16"
+        }
+      ]
     },
     {
       "slug": "new-light-secondary-school",
@@ -329,7 +743,8 @@
       "gallery": [
         "newlight/design-1.jpg",
         "newlight/design-2.jpg",
-        "newlight/still-2.jpg"
+        "newlight/still-2.jpg",
+        "designs2/newlight-1.jpg"
       ],
       "deliverables": [
         "Admission campaign reels",
@@ -351,7 +766,8 @@
       "gallery": [
         "royal/still-1.jpg",
         "royal/still-2.jpg",
-        "royal/still-3.jpg"
+        "royal/still-3.jpg",
+        "designs2/royal-1.jpg"
       ],
       "deliverables": [
         "6 reels a month",
@@ -379,7 +795,14 @@
         "4 edits a month"
       ],
       "results": [],
-      "todo": []
+      "todo": [],
+      "films": [
+        {
+          "title": "What does AI native mean?",
+          "media": "novus-ai",
+          "aspect": "4:5"
+        }
+      ]
     },
     {
       "slug": "renu-events-and-flower",
@@ -394,7 +817,10 @@
       "brief": "Renu Events and Flower designs flowers and events in Pokhara. We built their identity and service catalogue, and run their social media every month.",
       "gallery": [
         "renu/hi-01.jpg",
-        "renu/hi-02.jpg"
+        "renu/hi-02.jpg",
+        "designs2/renu-1.jpg",
+        "designs2/renu-3.jpg",
+        "designs2/renu-2.jpg"
       ],
       "deliverables": [
         "Brand identity",
@@ -405,7 +831,41 @@
       "links": {
         "behance": "https://www.behance.net/gallery/254091811/Renu-events-and-flower-Brand-identity"
       },
-      "todo": []
+      "todo": [],
+      "films": [
+        {
+          "title": "A bouquet of blooms",
+          "media": "renu-flower",
+          "aspect": "9:16"
+        }
+      ]
+    },
+    {
+      "slug": "xtep-nepal",
+      "title": "Xtep Nepal",
+      "client": "Xtep Nepal",
+      "category": "Product Film",
+      "year": 2026,
+      "aspect": "9:16",
+      "media": "xtep",
+      "poster": null,
+      "youtube": null,
+      "role": null,
+      "brief": "A short product film for Xtep Nepal’s running shoes: light, speed and detail on the upper and sole.",
+      "films": [],
+      "gallery": [
+        "xtep/s1.jpg",
+        "xtep/s2.jpg",
+        "xtep/s3.jpg"
+      ],
+      "deliverables": [
+        "Product film"
+      ],
+      "results": [],
+      "todo": [
+        "role"
+      ],
+      "links": {}
     }
   ],
   "hidden": []
