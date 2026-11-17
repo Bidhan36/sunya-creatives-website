@@ -1,0 +1,15 @@
+---
+// A muted looping film, cropped to its frame. Loads only near the viewport.
+const { m, eager = false, alt = '' } = Astro.props;
+---
+
+{
+  m?.mp4 ? (
+    <video muted loop playsinline preload="none" poster={m.poster} data-loop aria-hidden="true">
+      <source data-src={m.webm} type="video/webm" />
+      <source data-src={m.mp4} type="video/mp4" />
+    </video>
+  ) : (
+    m?.poster && <img src={m.poster} alt={alt} loading={eager ? 'eager' : 'lazy'} decoding="async" />
+  )
+}

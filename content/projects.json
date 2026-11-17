@@ -1,0 +1,404 @@
+{
+  "_readme": [
+    "One entry per project, in site order. The 001, 002 index comes from this order.",
+    "category: Brand Film, Music Video, Social Campaign, Event, Branding or Wedding.",
+    "media lives in public/work/<folder>/: loop.mp4 + loop.webm (muted, under 3 MB), poster.jpg, still-N.jpg. All films are cropped to their picture, no black bars.",
+    "aspect is the shape of the cover: 2.39, 2, 16:9, 9:16, 4:5.",
+    "null fields are hidden on the site and listed as TODO. Nothing here is invented."
+  ],
+  "projects": [
+    {
+      "slug": "honda",
+      "title": "Honda",
+      "client": "Honda",
+      "category": "Brand Film",
+      "year": null,
+      "aspect": "2.39",
+      "media": "honda",
+      "role": "Production, edit and colour grade for the full campaign",
+      "brief": "Three brand films for Honda, each led by a creator: Dixita Karki, Salomee and Urgen Moktan. Everyday stories where the scooter is part of a life, not the hero of an ad.",
+      "films": [
+        {
+          "title": "Honda × Dixita Karki",
+          "media": "honda-dixita",
+          "aspect": "2.39"
+        },
+        {
+          "title": "Honda × Salomee",
+          "media": "honda",
+          "aspect": "2.39"
+        },
+        {
+          "title": "Honda × Urgen Moktan",
+          "media": "honda-urgen",
+          "aspect": "2.39"
+        },
+        {
+          "title": "Behind the scenes",
+          "media": "honda-bts",
+          "aspect": "16:9"
+        }
+      ],
+      "gallery": [
+        "honda/still-1.jpg",
+        "honda-dixita/still-3.jpg",
+        "honda-urgen/still-2.jpg",
+        "honda/still-3.jpg",
+        "honda-dixita/still-2.jpg",
+        "honda-bts/still-3.jpg"
+      ],
+      "deliverables": [
+        "Three brand films",
+        "Two behind-the-scenes films"
+      ],
+      "results": [],
+      "todo": [
+        "role",
+        "year"
+      ]
+    },
+    {
+      "slug": "enduro-race",
+      "title": "Pokhara Enduro Race",
+      "client": "Pokhara Enduro Race",
+      "category": "Sports Campaign",
+      "year": null,
+      "aspect": "2",
+      "media": "enduro",
+      "role": "Content direction, shoot, edit, grade, posting and promotion",
+      "brief": "A run of ad films for the Pokhara Enduro Race, made to open registration. The job was simple: tell enduro riders across Nepal and abroad that this race is happening, and make them want to ride it.",
+      "gallery": [
+        "enduro/still-1.jpg",
+        "enduro/still-2.jpg",
+        "enduro/still-3.jpg"
+      ],
+      "deliverables": [
+        "Registration ad films",
+        "Campaign cuts for social"
+      ],
+      "results": [],
+      "todo": [
+        "role",
+        "year"
+      ]
+    },
+    {
+      "slug": "shutdown-ayg",
+      "title": "SHUTDOWN",
+      "client": "AYG",
+      "category": "Music Video",
+      "year": 2026,
+      "aspect": "16:9",
+      "media": null,
+      "poster": "shutdown/poster.jpg",
+      "youtube": "YiZpUQGxLJs",
+      "role": "Direction and edit",
+      "brief": "AYG's SHUTDOWN, produced by Niswon Music. A night-city music video with a noir edge, directed and cut by Sunya.",
+      "gallery": [],
+      "deliverables": [
+        "Official music video"
+      ],
+      "results": [],
+      "todo": [
+        "more stills from the master file"
+      ]
+    },
+    {
+      "slug": "see-how-we-shine",
+      "title": "See How We Shine",
+      "client": "Shishu Kalyan School",
+      "category": "Brand Film",
+      "year": null,
+      "aspect": "2.39",
+      "media": "shishu",
+      "role": null,
+      "brief": "A commercial for Shishu Kalyan School. Classrooms, corridors and trophy shelves, cut around one idea: every child here gets the chance to shine.",
+      "gallery": [
+        "shishu/still-1.jpg",
+        "shine/still-1.jpg",
+        "shishu/still-2.jpg",
+        "shine/still-3.jpg",
+        "shishu/still-3.jpg",
+        "shine/still-2.jpg"
+      ],
+      "deliverables": [
+        "School commercial"
+      ],
+      "results": [],
+      "todo": [
+        "role",
+        "year"
+      ]
+    },
+    {
+      "slug": "chari-haru-sangai",
+      "title": "Chari Haru Sangai",
+      "client": "Sagar Satyal",
+      "category": "Music Video",
+      "year": null,
+      "aspect": "16:9",
+      "media": "chari",
+      "role": "Concept, shoot, edit and grade, with freelancers and partner teams from Pokhara",
+      "brief": "A music video for Sagar Satyal. We led concept, shoot, edit and grade, and pulled in freelancers and partner teams from around Pokhara to build it: hair and make-up, a lakeside set and a night shoot.",
+      "gallery": [
+        "chari/still-1.jpg",
+        "chari/still-2.jpg",
+        "chari/still-3.jpg"
+      ],
+      "deliverables": [
+        "Music video",
+        "Behind-the-scenes film"
+      ],
+      "results": [],
+      "todo": [
+        "role",
+        "year",
+        "artist"
+      ]
+    },
+    {
+      "slug": "ma-jati-ruyeni",
+      "title": "Ma Jati Ruyeni",
+      "client": "Prabin Gurung",
+      "category": "Music Video",
+      "year": 2026,
+      "aspect": "4:5",
+      "media": null,
+      "poster": "majati/poster.jpg",
+      "youtube": null,
+      "role": null,
+      "brief": "Prabin Gurung's Ma Jati Ruyeni, featuring Prabesh and Kushmina. Sunya made the music video and its release poster for the 15 September premiere.",
+      "gallery": [],
+      "deliverables": [
+        "Music video",
+        "Release poster"
+      ],
+      "results": [],
+      "links": {
+        "behance": "https://www.behance.net/gallery/255750513/Music-Video-Poster-Ma-Jati-Ruyani-Poster"
+      },
+      "todo": [
+        "YouTube link",
+        "role",
+        "video file for loops"
+      ]
+    },
+    {
+      "slug": "hulaki-band",
+      "title": "Hulaki Band",
+      "client": "Aashirwad Music Fest",
+      "category": "Event",
+      "year": 2026,
+      "aspect": "9:16",
+      "media": "hulaki",
+      "role": null,
+      "brief": "Hulaki Band played Aashirwad Music Fest at Rolling Stone Lakeside, Pokhara, on 15 May. We ran the campaign around it, 36 pieces over 19 days, and closed it with the after-movie.",
+      "gallery": [
+        "hulaki/still-1.jpg",
+        "hulaki/still-2.jpg",
+        "hulaki/still-3.jpg"
+      ],
+      "deliverables": [
+        "Festival campaign, 36 assets over 19 days",
+        "After-movie reel"
+      ],
+      "results": [],
+      "todo": []
+    },
+    {
+      "slug": "creators-summit-nepal-2026",
+      "title": "Creators Summit Nepal 2026",
+      "client": "Creators Summit Nepal",
+      "category": "Branding",
+      "year": 2026,
+      "aspect": "4:5",
+      "media": null,
+      "poster": "summit-design/d5.jpg",
+      "role": "Event branding, design and reels",
+      "brief": "Creators Summit Nepal brought creators and brands together in Kathmandu on 3 July 2026. We built the identity from Nepali patterns and a deep red, then carried it through the event design and reels.",
+      "films": [
+        {
+          "title": "Event reel",
+          "media": "summit",
+          "aspect": "9:16"
+        }
+      ],
+      "gallery": [
+        "summit-design/d1.jpg",
+        "summit-design/d2.jpg",
+        "summit-design/d3.jpg",
+        "summit-design/d4.jpg"
+      ],
+      "deliverables": [
+        "Brand identity",
+        "Event design and print",
+        "Promo and event reels"
+      ],
+      "results": [],
+      "links": {
+        "behance": "https://www.behance.net/gallery/254001823/Creators-Summit-Nepal-2026-Branding"
+      },
+      "todo": []
+    },
+    {
+      "slug": "world-egg-day-nepal",
+      "title": "World Egg Day Nepal",
+      "client": "World Egg Day Nepal",
+      "category": "Social Campaign",
+      "year": 2026,
+      "aspect": "9:16",
+      "media": "egg",
+      "role": "Shoot, edit and photography",
+      "brief": "A digital campaign for World Egg Day Nepal, running 25 September to 8 October under #EggForEveryChild, then coverage of the event in Chitwan on 9 October.",
+      "gallery": [
+        "egg/still-1.jpg",
+        "egg/still-2.jpg",
+        "egg/still-3.jpg"
+      ],
+      "deliverables": [
+        "Campaign reels",
+        "Event film and photography"
+      ],
+      "results": [],
+      "todo": []
+    },
+    {
+      "slug": "singapore-cafe",
+      "title": "Singapore Cafe",
+      "client": "Singapore Cafe",
+      "category": "Brand Film",
+      "year": null,
+      "aspect": "2.39",
+      "media": "singapore",
+      "role": "Concept, direction, shoot, edit and grade",
+      "brief": "A brand film for Singapore Cafe in Nadipur, Pokhara: the room, the coffee bar and its barista workshop, and the evenings when the music starts.",
+      "gallery": [
+        "singapore/still-1.jpg",
+        "singapore/still-2.jpg",
+        "singapore/still-3.jpg"
+      ],
+      "deliverables": [
+        "Brand film"
+      ],
+      "results": [],
+      "todo": [
+        "role",
+        "year"
+      ]
+    },
+    {
+      "slug": "star-education",
+      "title": "Star Education and Migration",
+      "client": "Star Education and Migration",
+      "category": "Social Campaign",
+      "year": null,
+      "aspect": "9:16",
+      "media": "star",
+      "role": "Shoot, edit and social media",
+      "brief": "Star Education and Migration helps students study abroad. Every month we shoot and cut their reels: country guides, visa updates and counsellors answering the questions students actually ask.",
+      "gallery": [
+        "star/still-1.jpg",
+        "star/still-2.jpg",
+        "star/still-3.jpg"
+      ],
+      "deliverables": [
+        "12 pieces of content a month",
+        "Reels and graphics"
+      ],
+      "results": [],
+      "todo": []
+    },
+    {
+      "slug": "new-light-secondary-school",
+      "title": "New Light Secondary School",
+      "client": "New Light Secondary School",
+      "category": "Social Campaign",
+      "year": 2026,
+      "aspect": "9:16",
+      "media": "newlight",
+      "role": "Shoot, edit and design",
+      "brief": "Admissions season for New Light Secondary School. Reels that put students in front of the camera, and key visuals for the +2 intake.",
+      "gallery": [
+        "newlight/design-1.jpg",
+        "newlight/design-2.jpg",
+        "newlight/still-2.jpg"
+      ],
+      "deliverables": [
+        "Admission campaign reels",
+        "Admission campaign design"
+      ],
+      "results": [],
+      "todo": []
+    },
+    {
+      "slug": "royal-wedding-and-events",
+      "title": "Royal Wedding and Events",
+      "client": "Royal Wedding and Events",
+      "category": "Wedding",
+      "year": null,
+      "aspect": "9:16",
+      "media": "royal",
+      "role": "Shoot, edit, design and posting",
+      "brief": "Royal Wedding and Events plans weddings and events in Pokhara. On a monthly retainer we make six reels and six posts a month, including founder-led videos we record together.",
+      "gallery": [
+        "royal/still-1.jpg",
+        "royal/still-2.jpg",
+        "royal/still-3.jpg"
+      ],
+      "deliverables": [
+        "6 reels a month",
+        "6 graphic posts a month"
+      ],
+      "results": [],
+      "todo": []
+    },
+    {
+      "slug": "novus-group",
+      "title": "Novus Group",
+      "client": "Novus Group, USA",
+      "category": "Social Campaign",
+      "year": null,
+      "aspect": "4:5",
+      "media": "novus",
+      "role": "Edit",
+      "brief": "Novus Group is an AI company in the USA. We edit four videos a month for them: two-speaker explainers in 4:5 with animated captions, punch-ins and graphic cards.",
+      "gallery": [
+        "novus/still-1.jpg",
+        "novus/still-2.jpg",
+        "novus/still-3.jpg"
+      ],
+      "deliverables": [
+        "4 edits a month"
+      ],
+      "results": [],
+      "todo": []
+    },
+    {
+      "slug": "renu-events-and-flower",
+      "title": "Renu Events and Flower",
+      "client": "Renu Events and Flower",
+      "category": "Branding",
+      "year": 2026,
+      "aspect": "4:5",
+      "media": null,
+      "poster": "renu/hi-01.jpg",
+      "role": "Brand identity, design and social media",
+      "brief": "Renu Events and Flower designs flowers and events in Pokhara. We built their identity and service catalogue, and run their social media every month.",
+      "gallery": [
+        "renu/hi-01.jpg",
+        "renu/hi-02.jpg"
+      ],
+      "deliverables": [
+        "Brand identity",
+        "Service catalogue",
+        "Monthly social media"
+      ],
+      "results": [],
+      "links": {
+        "behance": "https://www.behance.net/gallery/254091811/Renu-events-and-flower-Brand-identity"
+      },
+      "todo": []
+    }
+  ],
+  "hidden": []
+}

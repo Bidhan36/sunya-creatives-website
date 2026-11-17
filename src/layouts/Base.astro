@@ -1,0 +1,89 @@
+---
+import '../styles/global.css';
+import { site, projects } from '../data/content.js';
+
+const { title, description, path = '/', bodyClass = '', current = '', darkTop = false, image } = Astro.props;
+const canonical = new URL(path, site.url).href;
+const og = new URL(image ?? '/og.jpg', site.url).href;
+const ld = {
+  '@context': 'https://schema.org',
+  '@type': 'LocalBusiness',
+  '@id': `${site.url}/#business`,
+  name: site.name,
+  slogan: site.tagline,
+  description: 'Cinematic video production and social media agency in Pokhara, Nepal.',
+  url: site.url,
+  image: og,
+  telephone: site.contact.phone,
+  address: { '@type': 'PostalAddress', addressLocality: 'Pokhara', addressRegion: 'Gandaki', addressCountry: 'NP' },
+  areaServed: ['Pokhara', 'Nepal'],
+  founder: { '@type': 'Person', name: site.founder.name },
+  sameAs: Object.values(site.socials).filter(Boolean),
+};
+const nav = [
+  ['Works', '/works/', 'works'],
+  ['About', '/about/', 'about'],
+  ["Let's talk", '/contact/', 'contact'],
+];
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <link rel="canonical" href={canonical} />
+    <meta name="theme-color" content="#edeee5" />
+    <link rel="preload" href="/fonts/is.woff2" as="font" type="font/woff2" crossorigin />
+    <link rel="icon" href="/favicon.png" type="image/png" />
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content={site.name} />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={canonical} />
+    <meta property="og:image" content={og} />
+    <meta name="twitter:card" content="summary_large_image" />
+    <script type="application/ld+json" is:inline set:html={JSON.stringify(ld)} />
+    <script is:inline>document.documentElement.classList.add('js');</script>
+  </head>
+  <body class:list={[bodyClass, { 'dark-top': darkTop }]}>
+    <a class="skip" href="#main">Skip to content</a>
+    <header class="hd">
+      <a class="hd__logo" href="/" aria-label="Sunya Creatives, home">
+        <img class="on-light" src="/img/logo-ink.png" width="580" height="88" alt="" />
+        <img class="on-dark" src="/img/logo-bone.png" width="580" height="88" alt="" />
+      </a>
+      <a class="hd__talk" href="/contact/" data-magnetic><i class="ring" aria-hidden="true"></i><span data-scramble>Let's talk</span></a>
+    </header>
+
+    <slot />
+
+    <nav class="mn" aria-label="Main">
+      <div class="mn__box">
+        <div class="mn__links" id="menu-links">
+          {
+            nav.map(([label, href, key]) => (
+              <a href={href} aria-current={current === key ? 'page' : undefined} tabindex="-1">
+                <span>
+                  {label}
+                  {key === 'works' && <sup>{String(projects.length).padStart(2, '0')}</sup>}
+                </span>
+              </a>
+            ))
+          }
+        </div>
+        <button class="mn__btn" type="button" aria-expanded="false" aria-controls="menu-links" aria-label="Open menu"><i></i><i></i><i></i></button>
+      </div>
+    </nav>
+
+    <div class="cur" aria-hidden="true"><div class="cur__d"><span data-cur-label>View</span></div></div>
+    <div class="tag" aria-hidden="true"><span class="idx" data-tag-i></span><b data-tag-t></b><span class="it" data-tag-c></span></div>
+    <div class="wipe" aria-hidden="true"></div>
+    <script>
+      import '../scripts/app.js';
+    </script>
+  </body>
+</html>

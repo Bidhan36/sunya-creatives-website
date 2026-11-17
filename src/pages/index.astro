@@ -1,0 +1,193 @@
+---
+import Base from '../layouts/Base.astro';
+import Loop from '../components/Loop.astro';
+import { projects, site } from '../data/content.js';
+
+const title = 'Sunya Creatives | Cinematic video production and social media, Pokhara';
+const description =
+  'Sunya Creatives is a cinematic video production and social media studio in Pokhara, Nepal. Brand films, music videos and campaigns, shot and cut with intent.';
+const tier = (p) => (p.ratio < 0.7 ? 'v' : p.ratio < 1.1 ? 'p' : 'w');
+---
+
+<Base title={title} description={description} path="/" bodyClass="home in-intro">
+  <main id="main">
+    <section class="intro dark" data-intro aria-label="Sunya Creatives">
+      <div class="intro__stage">
+        <div class="intro__lock">
+          <img class="intro__logo" src="/img/logo-bone.png" width="580" height="88" alt="Sunya" />
+          <div class="intro__mask"><p class="intro__line it">Zero to Impact.</p></div>
+        </div>
+        <p class="intro__cue" aria-hidden="true">Scroll</p>
+      </div>
+    </section>
+
+    <section class="hero" data-hero>
+      <h1 class="vh">Sunya Creatives, cinematic video production and social media in Pokhara</h1>
+      <div class="slider" data-strip aria-label="Selected work">
+        <div class="slider__track" data-track>
+          {
+            [0, 1, 2].map((s) => (
+              <div class="slider__set" data-set aria-hidden={s > 0 ? 'true' : undefined}>
+                {projects.map((p, i) => (
+                  <a
+                    class:list={['tile', `t-${tier(p)}`]}
+                    href={p.href}
+                    draggable="false"
+                    data-i={i}
+                    data-cursor="View"
+                    data-tag-index={p.index}
+                    data-tag-title={p.title}
+                    data-tag-cat={p.category}
+                    tabindex={s > 0 ? -1 : undefined}
+                    style={`--r:${p.ratio.toFixed(4)}`}
+                  >
+                    <span class="vh">{p.title}, {p.category}</span>
+                    <span class="frame tile__f">
+                      <Loop m={p.cover} eager={s === 0 && i < 4} />
+                    </span>
+                  </a>
+                ))}
+              </div>
+            ))
+          }
+        </div>
+      </div>
+      <p class="cap" aria-live="off"><span class="idx" data-cap-i>{projects[0].index}</span><b data-cap-t>{projects[0].title}</b><span class="it" data-cap-c>{projects[0].category}</span></p>
+
+      <div class="hero__base">
+        <p class="hero__big" aria-hidden="true"><span class="ln"><span>Zero to</span></span><span class="ln"><span>Impact.</span></span></p>
+        <div class="hero__side">
+          <p class="hero__name"><span class="ln"><span>Sunya Creatives</span></span></p>
+          <p class="hero__intro" data-fade>A cinematic video production and social media studio in Pokhara. Brand films, music videos and campaigns, shot and cut with intent.</p>
+        </div>
+      </div>
+      <footer class="fb">
+        <div><span>© {new Date().getFullYear()} Sunya Creatives</span><span>Pokhara, Nepal</span><a href="/privacy/">Privacy</a></div>
+        <div><a href={`mailto:${site.contact.email}`}>{site.contact.email}</a><a href={site.socials.instagram} target="_blank" rel="noopener">Instagram</a><a href={site.socials.tiktok} target="_blank" rel="noopener">TikTok</a><a href={site.socials.behance} target="_blank" rel="noopener">Behance</a><a href={`https://wa.me/${site.contact.whatsapp}`} target="_blank" rel="noopener">WhatsApp</a></div>
+      </footer>
+    </section>
+  </main>
+</Base>
+
+<style>
+  /* ----- Intro: black, logo rises, the line slides out from under it ----- */
+  .intro { height: 300svh; background: var(--ink); color: var(--white); position: relative; z-index: 2; }
+  .intro__stage { position: sticky; top: 0; height: 100svh; display: grid; place-items: center; overflow: hidden; }
+  .intro__lock { width: min(62vw, 640px); display: flex; flex-direction: column; align-items: center; }
+  .intro__logo { width: 100%; height: auto; will-change: transform, opacity; position: relative; z-index: 2; background: var(--ink); box-shadow: 0 0 0 2px var(--ink); }
+  .intro__mask { overflow: hidden; width: 100%; margin-top: 0.9em; text-align: center; }
+  .intro__line { display: block; font-size: min(5.4vw, 56px); line-height: 1.2; color: var(--canvas); will-change: transform; }
+  .intro__cue { position: absolute; left: 50%; bottom: var(--g); transform: translateX(-50%); font-size: var(--t-xs); color: var(--mute-d); letter-spacing: 0.02em; }
+  .intro__cue::after { content: ''; display: block; width: 1px; height: 36px; margin: 10px auto 0; background: currentColor; transform-origin: top; animation: cue 1.8s var(--ease) infinite; }
+  @keyframes cue { 0% { transform: scaleY(0); } 50% { transform: scaleY(1); transform-origin: top; } 51% { transform-origin: bottom; } 100% { transform: scaleY(0); transform-origin: bottom; } }
+  :global(.js) .intro__logo { opacity: 0; transform: translateY(40vh); }
+  :global(.js) .intro__line { transform: translateY(-110%); }
+
+  :global(.in-intro .hd), :global(.in-intro .mn) { opacity: 0; pointer-events: none; }
+  :global(.hd), :global(.mn) { transition: opacity 0.6s var(--ease); }
+
+  /* ----- Hero: slider + statement, one screen ----- */
+  .hero { height: 100svh; min-height: 600px; display: grid; grid-template-rows: minmax(0, 1fr) auto auto auto; padding-top: calc(var(--g) * 2 + 28px); background: var(--canvas); }
+  .slider { overflow: hidden; touch-action: pan-y; user-select: none; -webkit-user-select: none; cursor: grab; }
+  .slider:global(.is-drag) { cursor: grabbing; }
+  .slider__track, .slider__set { display: flex; align-items: flex-start; gap: max(10px, 0.9vw); height: 100%; }
+  .slider__track { width: max-content; will-change: transform; padding-left: max(10px, 0.9vw); }
+  .slider__set { flex: none; }
+  .tile { display: block; flex: none; height: var(--h); aspect-ratio: var(--r); -webkit-user-drag: none; }
+  .t-w { --h: 74%; }
+  .t-p { --h: 88%; }
+  .t-v { --h: 100%; }
+  .tile__f { display: block; width: 100%; height: 100%; }
+  .tile :global(video), .tile :global(img) { pointer-events: none; transition: transform 1.2s var(--ease); }
+  .tile:hover :global(video), .tile:hover :global(img) { transform: scale(1.04); }
+  .tile:focus-visible { outline-offset: -4px; }
+
+  .cap { display: flex; gap: 10px; align-items: baseline; padding: 10px var(--g) 0; min-height: 34px; white-space: nowrap; overflow: hidden; }
+  .cap b { font-weight: 600; }
+  .cap .it { color: var(--mute); font-size: 1.1em; }
+  @media (hover: hover) and (pointer: fine) { .cap { visibility: hidden; } }
+
+  .hero__base { display: grid; grid-template-columns: 1fr; gap: 18px; align-items: end; padding: clamp(14px, 3svh, 36px) var(--g) clamp(12px, 2.4svh, 28px); }
+  .hero__big { font-size: min(21vw, 15.5svh); font-weight: 500; letter-spacing: -0.05em; line-height: 0.86; }
+  .hero__name { font-weight: 600; margin-bottom: 8px; }
+  .hero__intro { max-width: 34ch; font-size: var(--t-sm); line-height: 1.35; }
+  @media (min-width: 900px) {
+    .hero__base { grid-template-columns: 1fr minmax(260px, 26vw); }
+    .hero__big { font-size: min(11vw, 19svh); }
+    .hero__intro { font-size: max(15px, 1.15vw); }
+  }
+  @media (max-width: 899px) {
+    .hero { grid-template-rows: minmax(0, 46svh) auto auto auto; padding-top: 72px; }
+    .hero__side { order: -1; }
+  }
+</style>
+
+<script>
+  import { gsap, ScrollTrigger, env } from '../scripts/app.js';
+  import { initStrip } from '../scripts/strip.js';
+  import { scramble } from '../scripts/scramble.js';
+
+  const body = document.body;
+  const intro = document.querySelector('[data-intro]');
+  const logo = intro.querySelector('.intro__logo');
+  const line = intro.querySelector('.intro__line');
+  const cue = intro.querySelector('.intro__cue');
+  const hero = document.querySelector('[data-hero]');
+
+  // Header and menu stay hidden until the home page has arrived.
+  ScrollTrigger.create({
+    trigger: hero,
+    start: 'top 45%',
+    onEnter: () => body.classList.remove('in-intro'),
+    onLeaveBack: () => body.classList.add('in-intro'),
+  });
+  // The statement on the home page reveals as the curtain lifts.
+  ScrollTrigger.create({ trigger: hero, start: 'top 70%', once: true, onEnter: () => hero.querySelectorAll('.ln,[data-fade]').forEach((e) => e.classList.add('is-in')) });
+
+  if (env.reduced) {
+    gsap.set([logo, line], { opacity: 1, y: 0, yPercent: 0 });
+  } else {
+    // 1. SUNYA rises from the bottom of the screen, fading in.
+    // 2. "Zero to Impact." slides out from behind its lower edge.
+    // 3. The black lifts away as the home page scrolls in.
+    const tl = gsap.timeline({ scrollTrigger: { trigger: intro, start: 'top top', end: () => `+=${innerHeight * 2}`, scrub: 0.8 } });
+    tl.fromTo(logo, { y: '40vh', opacity: 0 }, { y: 0, opacity: 1, ease: 'power3.out', duration: 1 })
+      .to(cue, { opacity: 0, duration: 0.3 }, 0)
+      .fromTo(line, { y: 0, yPercent: -110, opacity: 0 }, { y: 0, yPercent: 0, opacity: 1, ease: 'power3.out', duration: 0.9 }, 1.05)
+      .to({}, { duration: 0.6 });
+    ScrollTrigger.create({
+      trigger: intro,
+      start: () => `top+=${innerHeight * 2} top`,
+      end: 'bottom top',
+      scrub: true,
+      animation: gsap.to(intro.querySelector('.intro__lock'), { y: '-18vh', scale: 0.94, opacity: 0, ease: 'none' }),
+    });
+  }
+
+  // Returning to home in the same session: start at the home page, intro is one scroll up.
+  try {
+    if (sessionStorage.getItem('sunya:home') === '1' && location.hash !== '#intro') {
+      requestAnimationFrame(() => {
+        const y = intro.offsetHeight;
+        window.__lenis ? window.__lenis.scrollTo(y, { immediate: true }) : scrollTo(0, y);
+        ScrollTrigger.refresh();
+      });
+    }
+    sessionStorage.setItem('sunya:home', '1');
+  } catch {}
+
+  // Slider
+  const capI = document.querySelector('[data-cap-i]');
+  const capT = document.querySelector('[data-cap-t]');
+  const capC = document.querySelector('[data-cap-c]');
+  initStrip(document.querySelector('[data-strip]'), {
+    ticker: gsap.ticker,
+    reduced: env.reduced,
+    onActive(_i, t) {
+      if (env.fine) return;
+      capI.textContent = t.dataset.tagIndex;
+      capC.textContent = t.dataset.tagCat;
+      scramble(capT, t.dataset.tagTitle, 420);
+    },
+  });
+</script>

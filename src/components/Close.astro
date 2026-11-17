@@ -1,0 +1,22 @@
+---
+import { site } from '../data/content.js';
+const wa = `https://wa.me/${site.contact.whatsapp}`;
+---
+
+<section class="close dark" aria-label="Get in touch">
+  <p class="close__ask">A story worth shooting?</p>
+  <a class="close__cta" href="/contact/" data-cursor="Talk">Let's talk</a>
+  <div class="close__row">
+    <div><span class="it">Get in touch</span><a href={`mailto:${site.contact.email}`}>{site.contact.email}</a><a href={wa} target="_blank" rel="noopener">WhatsApp {site.contact.phone}</a></div>
+    <div><span class="it">Follow</span><a href={site.socials.instagram} target="_blank" rel="noopener">Instagram</a><a href={site.socials.tiktok} target="_blank" rel="noopener">TikTok</a><a href={site.socials.behance} target="_blank" rel="noopener">Behance</a></div>
+    <div><span class="it">Studio</span><span>Pokhara, Nepal</span></div>
+    <div><span class="it">Pages</span><a href="/works/">Works</a><a href="/about/">About</a><a href="/contact/">Let's talk</a></div>
+  </div>
+  <div class="marq" aria-hidden="true">
+    <div class="marq__t">{Array.from({ length: 8 }).map(() => <span>Zero to Impact.</span>)}</div>
+  </div>
+  <div class="fb" style="padding-top: 18px">
+    <div><span>© {new Date().getFullYear()} Sunya Creatives</span><a href="/privacy/">Privacy</a></div>
+    <div><span>Pokhara, Nepal</span></div>
+  </div>
+</section>

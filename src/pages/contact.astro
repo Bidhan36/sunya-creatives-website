@@ -1,0 +1,106 @@
+---
+import Base from '../layouts/Base.astro';
+import { site } from '../data/content.js';
+const needs = ['Brand film', 'Music video', 'Social media', 'Event', 'Branding', 'Wedding'];
+const budgets = ['Under NPR 50K', 'NPR 50K to 2L', 'NPR 2L to 5L', 'NPR 5L and above', 'Not sure yet'];
+const wa = `https://wa.me/${site.contact.whatsapp}`;
+---
+
+<Base title="Let's talk | Sunya Creatives" description="Start a project with Sunya Creatives in Pokhara. Tell us what you need, or message us on WhatsApp." path="/contact/" current="contact">
+  <main id="main" class="ct">
+    <h1 class="ct__h"><span class="ln"><span>Let's talk.</span></span></h1>
+    <p class="ct__lead" data-fade>Tell us what you're making, who it's for and when it needs to go live. We'll reply by email or WhatsApp.</p>
+    <div class="ct__grid">
+      <form class="ct__f" name="enquiry" method="post" action={`mailto:${site.contact.email}`} enctype="text/plain" data-enquiry data-wa={site.contact.whatsapp} data-mail={site.contact.email}>
+        <div class="ct__two">
+          <label class="fl"><span>Your name</span><input name="name" required autocomplete="name" /></label>
+          <label class="fl"><span>Brand</span><input name="brand" autocomplete="organization" /></label>
+        </div>
+        <label class="fl"><span>Email or WhatsApp number</span><input name="reply_to" required autocomplete="email" /></label>
+        <fieldset class="ch"><legend>What you need</legend>
+          {needs.map((n) => <label><input type="checkbox" name="need" value={n} /><span>{n}</span></label>)}
+        </fieldset>
+        <fieldset class="ch"><legend>Budget</legend>
+          {budgets.map((b) => <label><input type="radio" name="budget" value={b} /><span>{b}</span></label>)}
+        </fieldset>
+        <label class="fl"><span>Message</span><textarea name="message" rows="4" placeholder="A few lines on the project, dates and where it will live"></textarea></label>
+        <div class="ct__btns">
+          <button class="ct__send" type="submit" name="via" value="wa">Send on WhatsApp</button>
+          <button class="ct__send ct__send--line" type="submit" name="via" value="mail">Send by email</button>
+        </div>
+        <p class="ct__note" role="status" data-note></p>
+      </form>
+      <dl class="ct__d">
+        <div><dt class="it">WhatsApp</dt><dd><a href={wa} target="_blank" rel="noopener">{site.contact.phone}</a></dd></div>
+        <div><dt class="it">Instagram</dt><dd><a href={site.socials.instagram} target="_blank" rel="noopener">@sunya.creatives</a></dd></div>
+        <div><dt class="it">TikTok</dt><dd><a href={site.socials.tiktok} target="_blank" rel="noopener">@sunyacreatives</a></dd></div>
+        <div><dt class="it">Behance</dt><dd><a href={site.socials.behance} target="_blank" rel="noopener">sunyacreatives</a></dd></div>
+        {site.contact.email && <div><dt class="it">Email</dt><dd><a href={`mailto:${site.contact.email}`}>{site.contact.email}</a></dd></div>}
+        <div><dt class="it">Founder</dt><dd><a href={`mailto:${site.founder.email}`}>{site.founder.name}, {site.founder.email}</a></dd></div>
+        <div><dt class="it">Studio</dt><dd>Pokhara, Nepal</dd></div>
+      </dl>
+    </div>
+    <footer class="fb"><div><span>© {new Date().getFullYear()} Sunya Creatives</span><a href="/privacy/">Privacy</a></div><div><span>Pokhara, Nepal</span></div></footer>
+  </main>
+</Base>
+
+<style>
+  .ct { padding-top: 110px; min-height: 100svh; }
+  .ct__h { padding: 0 var(--g); font-size: var(--t-xl); font-weight: 500; letter-spacing: -0.05em; line-height: 0.9; }
+  .ct__lead { padding: 18px var(--g) 0; max-width: 46ch; font-size: var(--t-md); line-height: 1.3; }
+  .ct__grid { display: grid; gap: 56px; padding: clamp(36px, 5vw, 72px) var(--g) clamp(60px, 8vw, 110px); }
+  @media (min-width: 900px) { .ct__grid { grid-template-columns: 1.4fr 1fr; gap: 8vw; } }
+  .ct__f { display: flex; flex-direction: column; gap: 28px; }
+  .ct__two { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 28px; }
+  .fl { display: flex; flex-direction: column; gap: 6px; font-weight: 500; }
+  .fl input, .fl textarea { font: inherit; font-size: var(--t-md); font-weight: 400; color: var(--ink); background: transparent; border: 0; border-bottom: 1px solid var(--ink); padding: 8px 0; border-radius: 0; resize: vertical; }
+  .fl input:focus, .fl textarea:focus { outline: none; border-bottom-width: 2px; }
+  .fl textarea::placeholder { color: var(--mute); }
+  .ch { border: 0; margin: 0; padding: 0; display: flex; flex-wrap: wrap; gap: 8px; }
+  .ch legend { font-weight: 500; margin-bottom: 10px; padding: 0; }
+  .ch label { position: relative; }
+  .ch input { position: absolute; opacity: 0; inset: 0; margin: 0; cursor: pointer; }
+  .ch span { display: inline-flex; align-items: center; min-height: 44px; padding: 0 16px; border: 1px solid var(--ink); transition: background 0.25s, color 0.25s; }
+  .ch input:checked + span { background: var(--ink); color: var(--white); }
+  .ch input:focus-visible + span { outline: 2px solid var(--ink); outline-offset: 3px; }
+  .ct__send { align-self: flex-start; min-height: 56px; padding: 0 30px; background: var(--ink); color: var(--white); border: 0; font-weight: 600; cursor: pointer; transition: background 0.3s, color 0.3s; }
+  .ct__send:hover { background: var(--gold); color: var(--ink); }
+  .ct__btns { display: flex; flex-wrap: wrap; gap: 12px; }
+  .ct__send--line { background: transparent; color: var(--ink); border: 1px solid var(--ink); }
+  .ct__note { min-height: 1.4em; color: var(--mute); }
+  .ct__d { margin: 0; align-self: start; }
+  .ct__d div { padding: 14px 0; border-top: 1px solid var(--line); }
+  .ct__d dt { color: var(--mute); font-size: var(--t-md); }
+  .ct__d dd { margin: 2px 0 0; font-size: var(--t-md); font-weight: 500; }
+  .ct__d a:hover { text-decoration: underline; text-underline-offset: 4px; }
+</style>
+
+<script>
+  // No server needed: the enquiry opens as a ready-written WhatsApp message or email.
+  const f = document.querySelector('[data-enquiry]');
+  const note = f.querySelector('[data-note]');
+  f.addEventListener('submit', (e) => {
+    e.preventDefault();
+    if (!f.reportValidity()) return;
+    const d = new FormData(f);
+    const v = (k) => (d.get(k) || '').toString().trim();
+    const needs = d.getAll('need').join(', ');
+    const lines = [
+      `Hi Sunya, I'm ${v('name')}${v('brand') ? ` from ${v('brand')}` : ''}.`,
+      needs && `What we need: ${needs}`,
+      v('budget') && `Budget: ${v('budget')}`,
+      v('message') && `\n${v('message')}`,
+      `\nReply to: ${v('reply_to')}`,
+    ].filter(Boolean);
+    const text = lines.join('\n');
+    const via = (e.submitter && e.submitter.value) || 'wa';
+    if (via === 'wa') {
+      window.open(`https://wa.me/${f.dataset.wa}?text=${encodeURIComponent(text)}`, '_blank', 'noopener');
+      note.textContent = 'Your message is ready in WhatsApp. Press send there.';
+    } else {
+      location.href = `mailto:${f.dataset.mail}?subject=${encodeURIComponent(`New enquiry from ${v('name')}`)}&body=${encodeURIComponent(text)}`;
+      note.textContent = `Your email is ready in your mail app. If nothing opened, write to ${f.dataset.mail}.`;
+    }
+  });
+  document.querySelectorAll('.ct .ln, .ct__lead').forEach((l) => requestAnimationFrame(() => l.classList.add('is-in')));
+</script>

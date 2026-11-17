@@ -1,0 +1,140 @@
+{
+  "name": "Sunya Creatives",
+  "short": "Sunya",
+  "tagline": "Zero to Impact.",
+  "descriptor": "Cinematic video production and social media. Pokhara, Nepal.",
+  "url": "https://sunyacreatives.netlify.app",
+  "showUncleared": true,
+  "location": {
+    "city": "Pokhara",
+    "region": "Gandaki",
+    "country": "Nepal",
+    "countryCode": "NP",
+    "street": null,
+    "postalCode": null
+  },
+  "contact": {
+    "email": "sunyacreatives@gmail.com",
+    "whatsapp": "9779766596534",
+    "phone": "+977 976-6596534"
+  },
+  "socials": {
+    "instagram": "https://www.instagram.com/sunya.creatives/",
+    "behance": "https://www.behance.net/sunyacreatives",
+    "facebook": null,
+    "tiktok": "https://www.tiktok.com/@sunyacreatives",
+    "pinterest": null,
+    "youtube": null,
+    "linkedin": null
+  },
+  "home": {
+    "line": "Most brands don't need more content. They need the right three pieces, shot and cut with intent."
+  },
+  "numbers": [
+    {
+      "value": 62,
+      "suffix": "M+",
+      "label": "views"
+    },
+    {
+      "value": 675,
+      "suffix": "K+",
+      "label": "likes"
+    },
+    {
+      "value": 10,
+      "suffix": "",
+      "label": "people on the team"
+    },
+    {
+      "value": 100,
+      "suffix": "+",
+      "label": "deliverables a month"
+    }
+  ],
+  "clients": [
+    "Honda",
+    "Yamaha",
+    "Worldlink",
+    "ESL Global",
+    "Creators Summit Nepal",
+    "Pet Nepal",
+    "Soaltee Westend Pokhara",
+    "Temple Himalaya Hotel & Spa",
+    "Royal Wedding and Events",
+    "Deja Vu Beautiplex",
+    "Star Education and Migration",
+    "New Light Secondary School",
+    "Lakecity Hospital",
+    "Renu Events and Flower",
+    "Pokhara Trade Mall",
+    "Hulaki Band",
+    "Aashirwad Music Fest",
+    "HighGround Adventures",
+    "Novus Group",
+    "Charge & Go Nepal",
+    "New Mew"
+  ],
+  "founder": {
+    "name": "Bidhan Bastola",
+    "role": "Founder and creative director",
+    "credits": [
+      {
+        "title": "Hawa Jastai",
+        "artist": "John Chamling Rai",
+        "note": "Official music video",
+        "views": "34M+"
+      },
+      {
+        "title": "Maya Marideu",
+        "artist": "ShreeGo, Yodda & TWK",
+        "note": null,
+        "views": "16.6M+"
+      },
+      {
+        "title": "Sambandha",
+        "artist": "Sagar Gurung",
+        "note": null,
+        "views": "582K+"
+      },
+      {
+        "title": "SHUTDOWN",
+        "artist": "AYG",
+        "note": null,
+        "views": "339K+"
+      },
+      {
+        "title": "Prayash",
+        "artist": "Ritrona",
+        "note": null,
+        "views": "334K+"
+      },
+      {
+        "title": "SHRINGAAR",
+        "artist": "Trishala Gurung",
+        "note": null,
+        "views": "137K+"
+      },
+      {
+        "title": "Parkhaai",
+        "artist": "IUSH",
+        "note": null,
+        "views": "120K+"
+      },
+      {
+        "title": "Pokhara Avengers official anthem",
+        "artist": "Pokhara Avengers",
+        "note": null,
+        "views": "120K+"
+      }
+    ],
+    "email": "bidhan@sunyacreatives.com"
+  },
+  "todo": [
+    "contact.email, contact.whatsapp, contact.phone",
+    "location.street for the LocalBusiness schema",
+    "socials: Facebook, TikTok, Pinterest, YouTube, LinkedIn URLs",
+    "url: swap for the final domain before launch",
+    "All clients cleared for public display (17 Nov 2026)"
+  ]
+}

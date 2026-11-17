@@ -1,0 +1,18 @@
+---
+import Base from '../layouts/Base.astro';
+---
+
+<Base title="Page not found | Sunya Creatives" description="This page does not exist." path="/404/">
+  <main id="main" class="nf">
+    <h1><span>0</span><span>0</span>4</h1>
+    <p>This page doesn't exist. It may have moved when the site was rebuilt.</p>
+    <a href="/works/">See the work</a>
+  </main>
+</Base>
+
+<style>
+  .nf { min-height: 100svh; display: flex; flex-direction: column; justify-content: center; gap: 20px; padding: 110px var(--g); }
+  .nf h1 { font-size: var(--t-xl); font-weight: 500; letter-spacing: -0.05em; line-height: 0.9; }
+  .nf p { font-size: var(--t-md); max-width: 34ch; }
+  .nf a { align-self: flex-start; border-bottom: 1px solid currentColor; font-weight: 500; }
+</style>

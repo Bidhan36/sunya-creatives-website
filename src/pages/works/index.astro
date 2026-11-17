@@ -1,0 +1,150 @@
+---
+import Base from '../../layouts/Base.astro';
+import Loop from '../../components/Loop.astro';
+import Close from '../../components/Close.astro';
+import { projects } from '../../data/content.js';
+---
+
+<Base title="Works | Sunya Creatives" description="Brand films, music videos, social campaigns, events and branding by Sunya Creatives, Pokhara." path="/works/" current="works">
+  <main id="main">
+    <section class="wk" data-wheel style={`--n:${projects.length}`}>
+      <div class="wk__stage">
+        <div class="wk__h"><h1><span class="ln"><span>Works</span></span></h1><p class="wk__lead" data-fade>Brand films, music videos, campaigns, events and identities. {projects.length} projects and counting.</p></div>
+        <ul class="wk__rail" aria-hidden="true">
+          {projects.map((p, i) => <li class="frame" data-rail={i}><img src={p.cover.poster} alt="" loading="lazy" /></li>)}
+        </ul>
+        <div class="wk__view">
+          {
+            projects.map((p, i) => (
+              <a class="wk__cover frame" href={p.href} data-cover={i} style={`--r:${p.ratio.toFixed(4)}`} tabindex="-1" data-cursor="View" aria-hidden="true">
+                <Loop m={p.cover} />
+              </a>
+            ))
+          }
+        </div>
+        <ol class="wk__list">
+          {
+            projects.map((p, i) => (
+              <li data-item={i}>
+                <a href={p.href} data-cursor="View">
+                  <span class="idx">({p.index})</span>
+                  <span class="wk__t">{p.title}</span>
+                  <span class="wk__c it">{p.category}</span>
+                </a>
+              </li>
+            ))
+          }
+        </ol>
+        <p class="wk__hint it" aria-hidden="true">Scroll to turn. Click to open.</p>
+      </div>
+    </section>
+    <Close />
+  </main>
+</Base>
+
+<style>
+  .wk { --row: 30svh; height: calc(var(--n) * var(--row) + 100svh); position: relative; }
+  .wk__stage { position: sticky; top: 0; height: 100svh; overflow: hidden; }
+  .wk__h { position: absolute; left: var(--g); bottom: calc(var(--g) + 4px); max-width: 24ch; }
+  .wk__h h1 { font-size: var(--t-lg); font-weight: 500; letter-spacing: -0.03em; line-height: 1; }
+  .wk__lead { margin-top: 10px; color: var(--mute); font-size: var(--t-sm); }
+  .wk__rail { position: absolute; left: var(--g); top: 50%; transform: translateY(-58%); display: flex; flex-direction: column; gap: 6px; }
+  .wk__rail li { width: 52px; height: 30px; opacity: 0.35; transition: opacity 0.4s, transform 0.5s var(--ease); }
+  .wk__rail li.is-on { opacity: 1; transform: translateX(8px); }
+  .wk__view { position: absolute; left: 50%; top: 50%; width: 44vw; height: 60svh; transform: translate(-72%, -50%); }
+  .wk__cover { position: absolute; left: 50%; top: 50%; aspect-ratio: var(--r); width: min(44vw, calc(60svh * var(--r))); transform: translate(-50%, -50%); opacity: 0; transition: opacity 0.6s var(--ease); }
+  .wk__cover.is-on { opacity: 1; z-index: 1; }
+  .wk__list { list-style: none; margin: 0; padding: 0; position: absolute; left: 0; top: 0; width: 100%; height: 100%; pointer-events: none; }
+  .wk__list li { position: absolute; left: 70vw; top: 50%; will-change: transform, opacity; pointer-events: auto; }
+  .wk__list a { display: grid; grid-template-columns: auto; gap: 2px; padding: 4px 0; }
+  .wk__list .idx { position: absolute; right: calc(100% + 18px); top: 0.9em; }
+  .wk__t { font-size: max(24px, 2.4vw); font-weight: 500; letter-spacing: -0.025em; line-height: 1; max-width: 13ch; transform-origin: left center; transition: font-size 0.5s var(--ease); }
+  .wk__c { color: var(--mute); font-size: var(--t-sm); height: 0; overflow: hidden; opacity: 0; transition: opacity 0.4s; }
+  .wk__list li.is-on .wk__c { height: auto; opacity: 1; }
+  .wk__hint { position: absolute; right: calc(var(--g) + 64px); bottom: calc(var(--g) + 10px); color: var(--mute); font-size: var(--t-sm); }
+
+  /* Phones and tablets: a plain list of frames, no wheel */
+  @media (max-width: 899px) {
+    .wk { height: auto; }
+    .wk__stage { position: static; height: auto; overflow: visible; padding: 88px var(--g) 40px; }
+    .wk__h { position: static; margin-bottom: 28px; }
+    .wk__h h1 { font-size: max(56px, 15vw); line-height: 0.9; }
+    .wk__rail, .wk__view, .wk__hint { display: none; }
+    .wk__list { position: static; height: auto; pointer-events: auto; display: flex; flex-direction: column; gap: 34px; }
+    .wk__list li { position: static; transform: none !important; opacity: 1 !important; }
+    .wk__list .idx { position: static; }
+    .wk__t { font-size: 26px; }
+    .wk__c { height: auto; opacity: 1; }
+    .wk__list a::before { content: ''; display: block; aspect-ratio: var(--r, 16/9); background: var(--bg) center / cover no-repeat; margin-bottom: 12px; }
+  }
+</style>
+
+<script>
+  import { gsap, env } from '../../scripts/app.js';
+
+  const root = document.querySelector('[data-wheel]');
+  const items = [...root.querySelectorAll('[data-item]')];
+  const covers = [...root.querySelectorAll('[data-cover]')];
+  const rail = [...root.querySelectorAll('[data-rail]')];
+  const n = items.length;
+
+  // Phones: each list item shows its cover as a frame above the title.
+  covers.forEach((c, i) => {
+    const a = items[i].querySelector('a');
+    a.style.setProperty('--r', getComputedStyle(c).getPropertyValue('--r'));
+    a.style.setProperty('--bg', `url("${c.querySelector('video')?.poster || c.querySelector('img')?.src}")`);
+  });
+
+  const wide = matchMedia('(min-width: 900px)');
+  let cur = -1;
+  let p = 0;
+  let smooth = 0;
+  const setActive = (i) => {
+    if (i === cur) return;
+    cur = i;
+    covers.forEach((c, k) => c.classList.toggle('is-on', k === i));
+    rail.forEach((r, k) => r.classList.toggle('is-on', k === i));
+    items.forEach((it, k) => it.classList.toggle('is-on', k === i));
+    const v = covers[i].querySelector('video');
+    covers.forEach((c, k) => { const x = c.querySelector('video'); if (x && k !== i) x.pause(); });
+    if (v && !env.reduced) v.play().catch(() => {});
+  };
+
+  const read = () => {
+    const r = root.getBoundingClientRect();
+    const total = root.offsetHeight - innerHeight;
+    p = Math.min(1, Math.max(0, -r.top / total)) * (n - 1);
+  };
+  addEventListener('scroll', read, { passive: true });
+  read();
+  smooth = p;
+
+  gsap.ticker.add(() => {
+    if (!wide.matches) return;
+    smooth += (p - smooth) * (env.reduced ? 1 : 0.12);
+    const rowPx = Math.max(76, innerHeight * 0.135);
+    items.forEach((it, i) => {
+      const d = i - smooth;
+      const ad = Math.abs(d);
+      const y = d * rowPx;
+      const x = ad * ad * -10 + ad * -14; // curve away like a wheel
+      const s = Math.max(0.62, 1.55 - ad * 0.55);
+      it.style.transform = `translate3d(${x.toFixed(1)}px, calc(-50% + ${y.toFixed(1)}px), 0)`;
+      it.style.opacity = String(Math.max(0, 1 - ad * 0.17));
+      it.querySelector('.wk__t').style.fontSize = `max(${(24 * s).toFixed(1)}px, ${(2.4 * s).toFixed(2)}vw)`;
+    });
+    setActive(Math.round(smooth));
+  });
+
+  // Clicking a dim title scrolls it to the centre first, then opens it on a second click.
+  items.forEach((it, i) =>
+    it.querySelector('a').addEventListener('click', (e) => {
+      if (!wide.matches || i === cur || e.detail === 0) return;
+      e.preventDefault();
+      e.stopImmediatePropagation();
+      const top = root.offsetTop + (root.offsetHeight - innerHeight) * (i / (n - 1));
+      window.__lenis ? window.__lenis.scrollTo(top, { duration: 1.1 }) : scrollTo({ top, behavior: 'smooth' });
+    }, true),
+  );
+  root.querySelectorAll('.wk__h .ln,.wk__h [data-fade]').forEach((e) => e.classList.add('is-in'));
+</script>

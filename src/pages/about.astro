@@ -1,0 +1,165 @@
+---
+import Base from '../layouts/Base.astro';
+import Loop from '../components/Loop.astro';
+import Close from '../components/Close.astro';
+import { site, media } from '../data/content.js';
+
+const caps = [
+  ['Film & Production', ['Brand films and commercials', 'Music videos', 'Event films and after-movies', 'Cinematography and colour grading']],
+  ['Social Media Management', ['Monthly reels and posts', 'Content calendars', 'Posting and community', 'Meta boosting and reporting']],
+  ['Brand & Design', ['Brand identity', 'Campaign key visuals', 'Posters and print', 'Motion graphics']],
+  ['Strategy & Campaigns', ['Campaign concepts', 'Creator collaborations', 'Festival and launch campaigns', 'Scripts in Nepali and English']],
+];
+const reel = ['honda', 'enduro', 'shishu', 'singapore', 'honda-urgen', 'shine'].map((k) => media(k, '2.39'));
+---
+
+<Base title="About | Sunya Creatives" description="Sunya Creatives is a Pokhara studio for brand films, music videos, social media and branding. Founded by filmmaker Bidhan Bastola." path="/about/" current="about" darkTop>
+  <main id="main">
+    <section class="ah dark">
+      <h1 class="ah__t"><span class="ln"><span>Shot and cut</span></span><span class="ln"><span>with intent.</span></span></h1>
+      <div class="ah__c ah__c1 frame" data-fade><Loop m={media('hulaki', '9:16')} eager /></div>
+      <div class="ah__c ah__c2 frame" data-fade><Loop m={media('chari', '16:9')} eager /></div>
+      <div class="ah__c ah__c3 frame" data-fade><Loop m={media('enduro', '2')} eager /></div>
+      <p class="ah__p" data-fade>Sunya means zero. We start every project there: no templates, no stock answers. Then we build until the work has impact.</p>
+    </section>
+
+    <section class="rl dark" aria-label="Reel">
+      <div class="rl__f frame" data-reel data-cursor="Work">
+        {reel.map((m, i) => (
+          <video muted loop playsinline preload="none" poster={m.poster} class:list={[{ 'is-on': i === 0 }]} data-reel-v aria-hidden="true">
+            <source data-src={m.webm} type="video/webm" /><source data-src={m.mp4} type="video/mp4" />
+          </video>
+        ))}
+        <a class="rl__btn" href="/works/">See the work</a>
+      </div>
+    </section>
+
+    <section class="st">
+      <p class="st__q"><span class="ln"><span>Most brands don't need more content.</span></span><span class="ln"><span>They need the right three pieces,</span></span><span class="ln"><span>shot and cut with intent.</span></span></p>
+      <ol class="st__ap">
+        <li data-fade><span class="it st__l">Story</span><p>The edit is where the story is actually written. The camera just gathers material.</p></li>
+        <li data-fade><span class="it st__l">Consistency</span><p>Consistency beats virality. We would rather build the right audience than chase a big number.</p></li>
+        <li data-fade><span class="it st__l">One team</span><p>One team from idea to post: script, shoot, edit, grade, design and the posting calendar.</p></li>
+      </ol>
+      <h2 class="st__k it">What we do</h2>
+      <div class="st__caps">
+        {caps.map(([h, l]) => (
+          <div data-fade><h2>{h}</h2><ul>{l.map((x) => <li>{x}</li>)}</ul></div>
+        ))}
+      </div>
+    </section>
+
+    <section class="nu">
+      <ul class="nu__row">
+        {site.numbers.map((n) => (
+          <li data-fade><b><span data-count={n.value}>{n.value}</span>{n.suffix}</b><span class="it">{n.label}</span></li>
+        ))}
+      </ul>
+      <h2 class="nu__h it">Clients</h2>
+      <ul class="nu__cl">{site.clients.map((c) => <li>{c}</li>)}</ul>
+    </section>
+
+    <section class="fd dark">
+      <div class="fd__a">
+        <p class="it fd__k">Founder</p>
+        <h2 class="fd__n">{site.founder.name}</h2>
+        <p class="fd__p">Founder and creative director, and the DOP on most Sunya productions. Before Sunya he edited and shot music videos for John Chamling Rai, ShreeGo, Sagar Gurung and others. The edit is where the story is actually written.</p>
+        <p class="fd__mail"><a href={`mailto:${site.founder.email}`}>{site.founder.email}</a></p>
+        <div class="fd__cta"><a href="/contact/" class="btn btn--gold">Get in touch</a><a href="/works/" class="btn btn--line">View all projects</a></div>
+      </div>
+      <ol class="fd__cr">
+        {site.founder.credits.map((c) => (
+          <li data-fade><span class="fd__t">{c.title}</span><span class="fd__ar">{c.artist}</span><span class="fd__v">{c.views}</span></li>
+        ))}
+      </ol>
+    </section>
+    <Close />
+  </main>
+</Base>
+
+<style>
+  .ah { position: relative; min-height: 100svh; background: var(--ink); color: var(--white); padding: 120px var(--g) 80px; overflow: hidden; }
+  .ah__t { position: relative; z-index: 2; font-size: max(56px, 11vw); font-weight: 500; letter-spacing: -0.05em; line-height: 0.9; color: var(--gold); }
+  .ah__c { position: absolute; z-index: 1; }
+  .ah__c1 { right: 16vw; top: 12svh; width: max(110px, 11vw); aspect-ratio: 9 / 16; }
+  .ah__c2 { right: var(--g); top: 52svh; width: max(180px, 21vw); aspect-ratio: 16 / 9; }
+  .ah__c3 { left: 44vw; top: 60svh; width: max(160px, 17vw); aspect-ratio: 2; }
+  .ah__p { position: relative; z-index: 2; max-width: 34ch; margin-top: clamp(40px, 20svh, 220px); font-size: var(--t-md); line-height: 1.3; }
+  @media (max-width: 899px) {
+    .ah { padding-top: 110px; }
+    .ah__c1 { right: var(--g); top: auto; bottom: 120px; }
+    .ah__c2 { display: none; }
+    .ah__c3 { left: var(--g); top: auto; bottom: 64px; }
+    .ah__p { margin: 40px 0 280px; }
+  }
+
+  .rl { background: var(--ink); padding: 0 var(--g) var(--g); }
+  .rl__f { aspect-ratio: 2.39; width: 100%; }
+  .rl__f video { opacity: 0; transition: opacity 1.2s var(--ease); }
+  .rl__f video.is-on { opacity: 1; }
+  .rl__btn { position: absolute; left: 50%; top: 50%; transform: translate(-50%, -50%); z-index: 2; width: clamp(120px, 14vw, 200px); aspect-ratio: 1; border-radius: 50%; background: var(--white); color: var(--ink); display: grid; place-items: center; font-weight: 600; text-align: center; transition: transform 0.6s var(--ease); }
+  .rl__btn:hover { transform: translate(-50%, -50%) scale(1.06); }
+
+  .st { padding: clamp(80px, 11vw, 170px) var(--g); }
+  .st__q { font-size: var(--t-lg); font-weight: 500; letter-spacing: -0.03em; line-height: 1.05; max-width: 22ch; }
+  .st__ap { list-style: none; margin: clamp(48px, 6vw, 90px) 0 0; padding: 0; display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 28px; }
+  .st__ap li { border-top: 1px solid var(--ink); padding-top: 14px; }
+  .st__l { color: var(--mute); font-size: var(--t-md); }
+  .st__ap p { margin-top: 10px; font-size: var(--t-md); line-height: 1.25; letter-spacing: -0.01em; }
+  .st__k { font-size: var(--t-lg); color: var(--mute); font-weight: 400; margin-top: clamp(70px, 9vw, 130px); }
+  .st__caps { display: grid; grid-template-columns: repeat(auto-fit, minmax(230px, 1fr)); gap: 40px 28px; margin-top: 24px; }
+  .st__caps h2 { font-size: var(--t-md); font-weight: 500; letter-spacing: -0.02em; padding-bottom: 12px; border-bottom: 1px solid var(--ink); }
+  .st__caps li { padding: 7px 0; border-bottom: 1px solid var(--line); }
+
+  .nu { padding: 0 var(--g) clamp(80px, 10vw, 150px); }
+  .nu__row { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 28px; border-top: 1px solid var(--line); padding-top: 28px; }
+  .nu__row b { display: block; font-size: max(56px, 7vw); font-weight: 500; letter-spacing: -0.05em; line-height: 1; font-variant-numeric: tabular-nums; }
+  .nu__row .it { color: var(--mute); font-size: var(--t-md); }
+  .nu__h { font-size: var(--t-lg); color: var(--mute); margin: clamp(60px, 8vw, 110px) 0 16px; font-weight: 400; }
+  .nu__cl { columns: 3 240px; column-gap: 28px; }
+  .nu__cl li { break-inside: avoid; padding: 10px 0; border-top: 1px solid var(--line); font-size: var(--t-sm); }
+
+  .fd { display: grid; gap: 48px; background: var(--ink); color: var(--white); padding: clamp(80px, 10vw, 150px) var(--g); }
+  @media (min-width: 900px) { .fd { grid-template-columns: 0.8fr 1.2fr; } }
+  .fd__k { color: var(--mute-d); font-size: var(--t-md); }
+  .fd__n { font-size: var(--t-lg); font-weight: 500; letter-spacing: -0.03em; margin: 6px 0 18px; }
+  .fd__p { max-width: 38ch; line-height: 1.45; }
+  .fd__mail { margin-top: 18px; } .fd__mail a { border-bottom: 1px solid currentColor; }
+  .fd__cta { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 32px; }
+  .btn { display: inline-flex; align-items: center; min-height: 52px; padding: 0 24px; font-weight: 600; transition: background 0.3s, color 0.3s; }
+  .btn--gold { background: var(--gold); color: var(--ink); }
+  .btn--gold:hover { background: var(--white); }
+  .btn--line { border: 1px solid var(--white); }
+  .btn--line:hover { background: var(--white); color: var(--ink); }
+  .fd__cr { list-style: none; margin: 0; padding: 0; }
+  .fd__cr li { display: grid; grid-template-columns: 1.2fr 1fr auto; gap: 16px; padding: 14px 0; border-top: 1px solid #2a2a2a; }
+  .fd__t { font-weight: 500; }
+  .fd__ar { color: var(--mute-d); }
+  .fd__v { font-variant-numeric: tabular-nums; }
+  @media (max-width: 599px) { .fd__cr li { grid-template-columns: 1fr auto; } .fd__ar { grid-column: 1; grid-row: 2; } .fd__v { grid-row: 1 / span 2; grid-column: 2; align-self: center; } }
+</style>
+
+<script>
+  import { env } from '../scripts/app.js';
+  document.querySelectorAll('.ah .ln').forEach((l) => requestAnimationFrame(() => l.classList.add('is-in')));
+  document.querySelectorAll('.st__q').forEach((q) => new IntersectionObserver(([e], o) => e.isIntersecting && (q.querySelectorAll('.ln').forEach((l) => l.classList.add('is-in')), o.disconnect()), { rootMargin: '0px 0px -10% 0px' }).observe(q));
+
+  // Reel: crossfade through six films while it is on screen.
+  const f = document.querySelector('[data-reel]');
+  const vs = [...f.querySelectorAll('[data-reel-v]')];
+  let i = 0, timer = 0, loaded = false;
+  const show = (k) => {
+    vs.forEach((v, j) => v.classList.toggle('is-on', j === k));
+    vs[k].currentTime = 0;
+    vs[k].play().catch(() => {});
+    setTimeout(() => vs.forEach((v, j) => j !== k && v.pause()), 1300);
+  };
+  new IntersectionObserver(([e]) => {
+    if (e.isIntersecting) {
+      if (!loaded) { vs.forEach((v) => { v.querySelectorAll('source').forEach((s) => (s.src = s.dataset.src)); v.load(); }); loaded = true; }
+      if (env.reduced) return;
+      show(i);
+      timer = setInterval(() => show((i = (i + 1) % vs.length)), 3800);
+    } else { clearInterval(timer); vs.forEach((v) => v.pause()); }
+  }, { threshold: 0.3 }).observe(f);
+</script>

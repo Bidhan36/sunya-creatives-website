@@ -1,0 +1,173 @@
+---
+import Base from '../../layouts/Base.astro';
+import Loop from '../../components/Loop.astro';
+import Close from '../../components/Close.astro';
+import { projects } from '../../data/content.js';
+
+export function getStaticPaths() {
+  return projects.map((p, i) => ({ params: { slug: p.slug }, props: { p, next: projects[(i + 1) % projects.length] } }));
+}
+const { p, next } = Astro.props;
+const meta = [
+  ['Client', p.client],
+  ['Category', p.category],
+  ['Year', p.year],
+  ['Role', p.role],
+].filter(([, v]) => v);
+const wideHero = !!p.media && !p.vertical && p.ratio >= 1.5;
+const desc = `${p.title}: ${p.category.toLowerCase()} by Sunya Creatives, Pokhara.`;
+---
+
+<Base title={`${p.title} | Sunya Creatives`} description={desc} path={p.href} current="works" darkTop={wideHero} image={p.cover.poster}>
+  <main id="main">
+    {
+      wideHero ? (
+        <section class="ph dark">
+          <div class="ph__media frame"><Loop m={p.cover} eager /></div>
+          <div class="ph__shade" />
+          <div class="ph__copy">
+            <span class="idx">({p.index})</span>
+            <h1 class="ph__t"><span class="ln"><span>{p.title}</span></span></h1>
+            <p class="it ph__c">{p.category}</p>
+          </div>
+        </section>
+      ) : (
+        <section class:list={["pv", { "pv--w": p.ratio >= 1, "pv--t": p.youtube && !p.media }]}>
+          <div class="pv__copy">
+            <span class="idx">({p.index})</span>
+            <h1 class="pv__t"><span class="ln"><span>{p.title}</span></span></h1>
+            <p class="it pv__c">{p.category}</p>
+          </div>
+          {!(p.youtube && !p.media) && <div class="pv__media frame" style={`--r:${p.ratio.toFixed(4)}`}><Loop m={p.cover} eager /></div>}
+        </section>
+      )
+    }
+
+    <section class="pd">
+      <dl class="pd__meta" data-fade>
+        {meta.map(([k, v]) => (<div><dt class="it">{k}</dt><dd>{v}</dd></div>))}
+        {p.deliverables?.length > 0 && <div><dt class="it">Deliverables</dt><dd>{p.deliverables.join(', ')}</dd></div>}
+      </dl>
+      {p.brief && <p class="pd__brief" data-fade>{p.brief}</p>}
+      {p.results?.length > 0 && (
+        <ul class="pd__res">{p.results.map((r) => <li data-fade><b>{r.value}</b><span class="it">{r.label}</span></li>)}</ul>
+      )}
+      {p.links?.behance && <a class="pd__link" href={p.links.behance} target="_blank" rel="noopener">See the full case on Behance</a>}
+    </section>
+
+    {
+      p.youtube && (
+        <section class="yt" aria-label="Watch the film">
+          <button class="yt__f frame" type="button" data-yt={p.youtube} data-cursor="Play" aria-label={`Play ${p.title} on YouTube`}>
+            <img src={p.cover.poster} alt="" loading="lazy" />
+            <span class="yt__b">Play film</span>
+          </button>
+          <p class="yt__n"><a href={`https://www.youtube.com/watch?v=${p.youtube}`} target="_blank" rel="noopener">Watch on YouTube</a></p>
+        </section>
+      )
+    }
+
+    {
+      p.films.length > 0 && (
+        <section class="pf">
+          <h2 class="pf__h it">Films</h2>
+          <div class="pf__grid">
+            {p.films.map((f) => (
+              <figure class:list={['pf__f', { 'pf__f--v': f.ratio < 1 }]} data-fade>
+                <div class="frame" style={`aspect-ratio:${f.ratio}`}><Loop m={f} /></div>
+                <figcaption>{f.title}</figcaption>
+              </figure>
+            ))}
+          </div>
+        </section>
+      )
+    }
+
+    {p.gallery.length > 0 && <section class:list={["pg", { "pg--v": p.vertical }]} aria-label="Stills">
+      {p.gallery.map((src) => (<figure data-fade><img src={src} alt={`${p.title}, still`} loading="lazy" decoding="async" /></figure>))}
+    </section>}
+
+    <a class="pn dark" href={next.href} data-cursor="Next">
+      <span class="pn__k it">Next project</span>
+      <span class="pn__t">{next.title}</span>
+      <span class="pn__m frame" style={`--r:${next.ratio.toFixed(4)}`}><img src={next.cover.poster} alt="" loading="lazy" /></span>
+    </a>
+    <Close />
+  </main>
+</Base>
+
+<style>
+  .ph { position: relative; height: 100svh; min-height: 520px; color: var(--white); background: var(--ink); }
+  .ph__media { position: absolute; inset: 0; }
+  .ph__shade { position: absolute; inset: 0; background: linear-gradient(180deg, rgba(0,0,0,0.35) 0%, rgba(0,0,0,0) 22%, rgba(0,0,0,0) 55%, rgba(0,0,0,0.6) 100%); }
+  .ph__copy { position: absolute; left: var(--g); right: var(--g); bottom: calc(var(--g) + 56px); }
+  .ph__t, .pv__t { font-size: var(--t-xl); font-weight: 500; letter-spacing: -0.05em; line-height: 0.9; max-width: 12ch; }
+  .ph__c, .pv__c { font-size: var(--t-md); margin-top: 10px; color: var(--gold); }
+  .pv__c { color: var(--mute); }
+  .ph .idx { color: var(--white); }
+
+  .pv { display: grid; gap: 28px; padding: 96px var(--g) 40px; align-items: end; }
+  .pv--t { min-height: 0 !important; padding-bottom: 24px; }
+  .pv__media { width: 100%; aspect-ratio: var(--r); max-height: 82svh; margin-left: auto; }
+  @media (min-width: 900px) {
+    .pv { grid-template-columns: minmax(0, 1fr) auto; min-height: 100svh; }
+    .pv__t { font-size: min(var(--t-xl), 8.4vw); }
+    .pv--w { grid-template-columns: 1fr; align-content: end; }
+    .pv--w .pv__media { width: min(100%, calc(66svh * var(--r))); margin-left: 0; }
+    .pv--w .pv__t { font-size: var(--t-xl); }
+    .pv__media { width: min(54vw, calc(80svh * var(--r))); height: auto; }
+  }
+
+  .pd { padding: clamp(48px, 8vw, 120px) var(--g); display: grid; gap: 40px; }
+  .pd__meta { margin: 0; display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 24px; border-top: 1px solid var(--line); padding-top: 20px; }
+  .pd__meta dt { color: var(--mute); font-size: var(--t-md); }
+  .pd__meta dd { margin: 4px 0 0; font-weight: 500; }
+  .pd__brief { font-size: var(--t-lg); font-weight: 500; letter-spacing: -0.025em; line-height: 1.1; max-width: 26ch; }
+  .pd__res { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 24px; }
+  .pd__res b { display: block; font-size: var(--t-lg); font-weight: 500; }
+  .pd__link { justify-self: start; border-bottom: 1px solid currentColor; font-weight: 500; }
+
+.yt { padding: 0 var(--g) clamp(48px, 7vw, 100px); }
+  .yt__f { position: relative; display: block; width: 100%; aspect-ratio: 16 / 9; border: 0; padding: 0; cursor: pointer; }
+  .yt__f img { transition: transform 1.2s var(--ease); }
+  .yt__f:hover img { transform: scale(1.03); }
+  .yt__f iframe { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; }
+  .yt__b { position: absolute; left: 50%; top: 50%; transform: translate(-50%, -50%); width: clamp(96px, 11vw, 160px); aspect-ratio: 1; border-radius: 50%; background: var(--white); color: var(--ink); display: grid; place-items: center; font-weight: 600; transition: transform 0.6s var(--ease); }
+  .yt__f:hover .yt__b { transform: translate(-50%, -50%) scale(1.07); }
+  .yt__n { margin-top: 12px; }
+  .yt__n a { border-bottom: 1px solid currentColor; font-weight: 500; }
+  .pf { padding: 0 var(--g) clamp(48px, 7vw, 100px); }
+  .pf__h { font-size: var(--t-lg); color: var(--mute); margin-bottom: 20px; }
+  .pf__grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 420px), 1fr)); gap: 28px 16px; align-items: start; }
+  .pf__f--v { max-width: 360px; }
+  .pf__f figcaption { margin-top: 10px; font-weight: 500; }
+
+  .pg { columns: 2 320px; column-gap: 14px; padding: 0 var(--g) clamp(60px, 8vw, 120px); }
+  .pg--v { columns: 3 200px; }
+  @media (max-width: 599px) { .pg--v { columns: 2; } }
+  .pg figure { break-inside: avoid; margin-bottom: 14px; }
+  .pg img { width: 100%; height: auto; }
+
+  .pn { display: grid; grid-template-columns: 1fr; gap: 18px; padding: clamp(60px, 9vw, 140px) var(--g); background: var(--ink); color: var(--white); border-bottom: 1px solid #222; }
+  .pn__k { color: var(--mute-d); font-size: var(--t-md); }
+  .pn__t { font-size: var(--t-xl); font-weight: 500; letter-spacing: -0.05em; line-height: 0.9; transition: color 0.4s; }
+  .pn:hover .pn__t { color: var(--gold); }
+  .pn__m { width: min(100%, calc(46svh * var(--r))); aspect-ratio: var(--r); }
+  @media (min-width: 900px) { .pn { grid-template-columns: 1fr auto; align-items: end; } .pn__k { grid-column: 1 / -1; } .pn__m { width: min(32vw, calc(46svh * var(--r))); } }
+</style>
+
+<script>
+  // YouTube loads only after the visitor presses Play.
+  document.querySelectorAll('[data-yt]').forEach((b) =>
+    b.addEventListener('click', () => {
+      const f = document.createElement('iframe');
+      f.src = `https://www.youtube-nocookie.com/embed/${b.dataset.yt}?autoplay=1&rel=0&modestbranding=1`;
+      f.title = b.getAttribute('aria-label');
+      f.allow = 'autoplay; encrypted-media; picture-in-picture; fullscreen';
+      f.allowFullscreen = true;
+      b.replaceChildren(f);
+      b.removeAttribute('data-cursor');
+    }, { once: true }),
+  );
+  document.querySelectorAll('.ph .ln, .pv .ln').forEach((l) => requestAnimationFrame(() => l.classList.add('is-in')));
+</script>
