@@ -165,12 +165,12 @@
       "aspect": "4:5",
       "media": null,
       "poster": "majati/poster.jpg",
-      "youtube": null,
-      "role": null,
-      "brief": "Prabin Gurung's Ma Jati Ruyeni, featuring Prabesh and Kushmina. Sunya made the music video and its release poster for the 15 September premiere.",
+      "youtube": "jkUAjfCFTJk",
+      "role": "Direction, cinematography, production, artist and location management, colour grading",
+      "brief": "Prabin Gurung's Ma Jati Ruyeni, featuring Prabesh and Kushmina. Everything except the music was Sunya: casting and managing the artists, locations, production, direction, cinematography and the grade, all by our own team. We also designed the release poster for the 15 September premiere.",
       "gallery": [],
       "deliverables": [
-        "Music video",
+        "Official music video",
         "Release poster"
       ],
       "results": [],
@@ -178,8 +178,6 @@
         "behance": "https://www.behance.net/gallery/255750513/Music-Video-Poster-Ma-Jati-Ruyani-Poster"
       },
       "todo": [
-        "YouTube link",
-        "role",
         "video file for loops"
       ]
     },
